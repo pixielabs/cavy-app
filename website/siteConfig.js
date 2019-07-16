@@ -15,6 +15,7 @@ const siteConfig = {
   title: "Cavy",
   tagline: "Start end-to-end testing your React Native application across iOS and Android in 5 minutes",
   url: "https://cavy.app",
+  cname: "cavy.app",
   baseUrl: baseUrl,
   // Used for publishing and more
   projectName: "cavy-app",
