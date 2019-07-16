@@ -9,15 +9,15 @@
 // site configuration options.
 
 // Pulled baseUrl out of siteConfig object as it is referenced at multiple locations. 
-const baseUrl = '/';
+const baseUrl = '/cavy-app/';
 
 const siteConfig = {
   title: "Cavy",
   tagline: "Start end-to-end testing your React Native application across iOS and Android in 5 minutes",
-  url: "https://cavy.app",
+  url: "https://pixielabs.github.io",
   baseUrl: baseUrl,
   // Used for publishing and more
-  projectName: "cavy.app",
+  projectName: "cavy-app",
   organizationName: "pixielabs",
 
   // For no header links in the top nav bar -> headerLinks: [],
