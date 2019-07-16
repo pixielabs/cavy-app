@@ -1,0 +1,42 @@
+{
+  "docs": {
+    "Getting Started": [
+      "getting-started/installing",
+      "getting-started/setting-cavy-up",
+      {
+        "type": "subcategory",
+        "label": "Writing tests",
+        "ids": [
+          "getting-started/hooking-up-components",
+          "getting-started/writing-tests"
+        ]
+      },
+      "getting-started/running-tests"
+    ],
+    "Guides": [
+      "guides/writing-spec-helpers",
+      "guides/writing-custom-reporters",
+      "guides/specifing-a-custom-app-entry-point"
+    ],
+    "Cavy Native Reporter": [
+      "cavy-native-reporter/installing",
+      "cavy-native-reporter/usage",
+      {
+        "type": "subcategory",
+        "label": "Reporting to Native Tests",
+        "ids": [
+          "cavy-native-reporter/reporting-to-ios-xctest-objective-c",
+          "cavy-native-reporter/reporting-to-ios-xctest-swift",
+          "cavy-native-reporter/reporting-to-android"
+        ]
+      }
+    ],
+    "API reference": [
+      "api/commands",
+      "api/helpers",
+      "api/tester",
+      "api/test-hooks",
+      "api/cavy-native-reporter"
+    ]
+  }
+}
