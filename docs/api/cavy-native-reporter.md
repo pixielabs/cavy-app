@@ -6,7 +6,7 @@ sidebar_label: Cavy Native Reporter
 
 A reporter that sends test results to native Android or iOS test runners.
 
-* [See installation & usage instructions](http://localhost:3000/cavy-docs/docs/cavy-native-reporter/installing)
+* [See installation & usage instructions](../guides/cavy-native-reporter/installing)
 * [View GitHub repo](https://github.com/pixielabs/cavy-native-reporter)
 
 ## Reference

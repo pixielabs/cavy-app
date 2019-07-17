@@ -1,7 +1,7 @@
 ---
 id: installing
-title: Installing 
-sidebar_label: Installing
+title: Installing Cavy Native Reporter 
+sidebar_label: Installing Cavy Native Reporter
 ---
 
 Cavy Native Reporter allows you to send your Cavy test results to native

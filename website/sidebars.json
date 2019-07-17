@@ -16,18 +16,16 @@
     "Guides": [
       "guides/writing-spec-helpers",
       "guides/writing-custom-reporters",
-      "guides/specifing-a-custom-app-entry-point"
-    ],
-    "Cavy Native Reporter": [
-      "cavy-native-reporter/installing",
-      "cavy-native-reporter/usage",
+      "guides/specifing-a-custom-app-entry-point",
       {
         "type": "subcategory",
-        "label": "Reporting to Native Tests",
+        "label": "Reporting to Native Test Runners",
         "ids": [
-          "cavy-native-reporter/reporting-to-ios-xctest-objective-c",
-          "cavy-native-reporter/reporting-to-ios-xctest-swift",
-          "cavy-native-reporter/reporting-to-android"
+          "guides/cavy-native-reporter/installing",
+          "guides/cavy-native-reporter/usage",
+          "guides/cavy-native-reporter/reporting-to-ios-xctest-objective-c",
+          "guides/cavy-native-reporter/reporting-to-ios-xctest-swift",
+          "guides/cavy-native-reporter/reporting-to-android"
         ]
       }
     ],

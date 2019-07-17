@@ -48,9 +48,6 @@ class Footer extends React.Component {
               Getting Started
             </a>
             <a href={this.docUrl("guides/writing-spec-helpers")}>Guides</a>
-            <a href={this.docUrl("cavy-native-reporter/installing")}>
-              Cavy Native Reporter
-            </a>
             <a href={this.docUrl("api/commands")}>API Reference</a>
           </div>
           <div>

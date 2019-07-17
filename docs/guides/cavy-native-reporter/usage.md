@@ -1,7 +1,7 @@
 ---
 id: usage
 title: Using Cavy Native Reporter
-sidebar_label: Usage
+sidebar_label: Using Cavy Native Reporter
 ---
 
 Take a look at [the cavy-native-reporter sample app](https://github.com/pixielabs/cavy-native-reporter/tree/master/sampleApp) 
@@ -65,4 +65,4 @@ have a look at some examples of how to set this up here:
 
 #### See also
 
-* [CavyNativeReporter API](../api/cavy-native-reporter)
+* [CavyNativeReporter API](../../api/cavy-native-reporter)

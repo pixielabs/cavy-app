@@ -40,7 +40,7 @@ class BridgeTest: XCTestCase {
 
 #### API reference
 
-* [`onFinish`](../api/cavy-native-reporter#onfinish-class-method)
+* [`onFinish`](../../api/cavy-native-reporter#onfinish-class-method)
 
 #### Useful links for iOS Testing
 - [Writing XCTest classes](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/04-writing_tests.html)

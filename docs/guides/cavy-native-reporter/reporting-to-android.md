@@ -72,8 +72,8 @@ public class BridgeTest {
 
 #### API reference
 
-* [`waitForReport`](../api/cavy-native-reporter#waitforreportseconds)
-* [`cavyReport`](../api/cavy-native-reporter#cavyreport)
+* [`waitForReport`](../../api/cavy-native-reporter#waitforreportseconds)
+* [`cavyReport`](../../api/cavy-native-reporter#cavyreport)
 
 #### Useful links for Android Testing
 - [Writing instrumented unit tests](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests)
