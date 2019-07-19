@@ -43,5 +43,5 @@ AppRegistry.registerComponent('App', () => TestableApp);
 For a real example of a custom test reporter, check out Cavy Native Reporter,
 which reports test results to native Android or iOS test runners:
 
-* [Installing & using Cavy Native Reporter](../cavy-native-reporter/installing)
+* [Installing & using Cavy Native Reporter](../guides/cavy-native-reporter/installing-and-usage)
 * [Cavy Native Reporter on GitHub](https://github.com/pixielabs/cavy-native-reporter)

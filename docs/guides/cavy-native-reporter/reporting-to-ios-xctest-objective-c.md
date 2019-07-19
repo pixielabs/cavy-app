@@ -1,7 +1,7 @@
 ---
 id: reporting-to-ios-xctest-objective-c
 title: Reporting to iOS XCTest (Objective C)
-sidebar_label: iOS XCTest (Objective C)
+sidebar_label: iOS XCTest example (Obj-C)
 ---
 
 To set up your own XCTestCase that makes use of `cavy-native-reporter`:
@@ -51,7 +51,7 @@ waits for Cavy tests to run and fails if any test returns an error:
 
 #### API reference
 
-* [`onFinishWithBlock`](../api/cavy-native-reporter#onfinishwithblock-class-method)
+* [`onFinishWithBlock`](../../api/cavy-native-reporter#onfinishwithblock-class-method)
 
 #### Useful links for iOS Testing
 - [Writing XCTest classes](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/04-writing_tests.html)

@@ -1,7 +1,7 @@
 ---
 id: reporting-to-ios-xctest-swift
 title: Reporting to iOS XCTest (Swift)
-sidebar_label: iOS XCTest (Swift)
+sidebar_label: iOS XCTest example (Swift)
 ---
 
 To set up your own XCTestCase in Swift that makes use of cavy-native-reporter:
@@ -40,7 +40,7 @@ class BridgeTest: XCTestCase {
 
 #### API reference
 
-* [`onFinish`](../api/cavy-native-reporter#onfinish-class-method)
+* [`onFinish`](../../api/cavy-native-reporter#onfinish-class-method)
 
 #### Useful links for iOS Testing
 - [Writing XCTest classes](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/04-writing_tests.html)
