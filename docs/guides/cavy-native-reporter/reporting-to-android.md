@@ -1,7 +1,7 @@
 ---
 id: reporting-to-android
 title: Reporting to Android (JUnit)
-sidebar_label: Android (JUnit)
+sidebar_label: Android example (JUnit)
 ---
 
 To set up your own JUnit test that makes use of `cavy-native-reporter`:
@@ -30,7 +30,7 @@ defaultConfig {
   ...
 }
 ```
-5. Then write a test.
+5. Write a test.
 
 
 Taking the sample app as an example, we have an JUnit test `BridgeTest` which

@@ -1,7 +1,7 @@
 ---
 id: reporting-to-ios-xctest-objective-c
 title: Reporting to iOS XCTest (Objective C)
-sidebar_label: iOS XCTest (Objective C)
+sidebar_label: iOS XCTest example (Obj-C)
 ---
 
 To set up your own XCTestCase that makes use of `cavy-native-reporter`:

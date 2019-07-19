@@ -1,7 +1,7 @@
 ---
 id: reporting-to-ios-xctest-swift
 title: Reporting to iOS XCTest (Swift)
-sidebar_label: iOS XCTest (Swift)
+sidebar_label: iOS XCTest example (Swift)
 ---
 
 To set up your own XCTestCase in Swift that makes use of cavy-native-reporter:
