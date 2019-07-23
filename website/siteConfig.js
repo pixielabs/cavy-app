@@ -82,7 +82,9 @@ const siteConfig = {
 
   // Use Prism for Syntax highlighting jsx. For all other languages,
   // Docusaurus will use Highlight.js.
-  usePrism: ["jsx", "js", "java", "swift"]
+  usePrism: ["jsx", "js", "java", "swift"],
+  
+  gaTrackingId: 'UA-42424366-31'
 };
 
 module.exports = siteConfig;
