@@ -4,14 +4,16 @@ title: Installing
 sidebar_label: Installing
 ---
 
-_To help you get started Cavy provides a command-line interface (called
-cavy-cli) which makes it easier to get set up and run your tests._
+To help you get started Cavy provides a command-line interface (called
+cavy-cli) which makes it easier to get set up and run your tests.
 
-_You can also run Cavy tests without cavy-cli. In which case, skip the CLI
-installation step and just install cavy. You may want to do this if:_
+You can also run Cavy tests without cavy-cli. In which case, skip the CLI
+installation step and just install cavy. You may want to do this if:
 
-- _You're using Expo (not currently supported via the CLI)_
-- _You're integrating Cavy with your own custom reporting (e.g. [Cavy Native Reporter](../guides/cavy-native-reporter/installing-and-usage))_
+- You're using Expo (not currently supported via the CLI)
+- You're integrating Cavy with your own custom reporting (e.g. [Cavy Native Reporter](../guides/cavy-native-reporter/installing-and-usage))
+
+---
 
 To get started with Cavy, install **cavy-cli** globally using yarn or npm:
 
