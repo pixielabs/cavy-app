@@ -4,6 +4,11 @@ title: Setting up the Cavy Tester
 sidebar_label: Setting up the Cavy Tester
 ---
 
+ * [I am using cavy-cli](#if-you-are-using-cavy-cli)
+ * [I am not using cavy-cli](#if-you-are-not-using-cavy-cli)
+
+## If you are using cavy-cli
+
 Once you've downloaded cavy-cli and added Cavy to your project, you're ready to
 get started. From within your React Native project, run:
 
@@ -51,6 +56,34 @@ and renders your app inside Cavy's Tester component so that the tests run on boo
 **NOTE:** Cavy assumes that your app entry point will be named `index.js`. If this is not
 the case, see [Specifying a custom app entry point](../guides/specifing-a-custom-app-entry-point).
 
+## If you are not using cavy-cli
+
+Import Tester, TestHookStore and your specs in your top-level JS file
+(typically this is your `index.{ios,android}.js` files). Instantiate a new
+TestHookStore and render your app inside a Tester.
+
+```jsx
+// index.ios.js
+
+import React, { Component } from 'react';
+import { Tester, TestHookStore } from 'cavy';
+import ExampleSpec from './specs/exampleSpec';
+import App from './app';
+
+const testHookStore = new TestHookStore();
+
+export default class AppWrapper extends Component {
+  render() {
+    return (
+      <Tester specs={[ExampleSpec]} store={testHookStore}>
+        <App />
+      </Tester>
+    );
+  }
+}
+```
+
 #### More on the Tester component
 
 * [Tester component API](../api/tester)
+

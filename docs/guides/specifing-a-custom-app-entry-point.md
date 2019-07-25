@@ -4,6 +4,8 @@ title: Specifing a custom app entry point
 sidebar_label: Specifing a custom app entry point
 ---
 
+_This guide is only relevant if you're running Cavy with cavy-cli._
+
 By default, Cavy looks for an `index.js` entry point in your React Native project.
 Running `cavy init` will generate a corresponding `index.test.js` file,
 which is used to make sure that your tests only run
