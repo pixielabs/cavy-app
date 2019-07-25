@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Installing · Cavy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="_In these guides, we&#x27;ll use cavy-cli to get set up and run tests. You can also"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Installing · Cavy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cavy.app/"/><meta property="og:description" content="_In these guides, we&#x27;ll use cavy-cli to get set up and run tests. You can also"/><meta property="og:image" content="https://cavy.app/img/cavy.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://cavy.app/img/cavy.png"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Installing · Cavy</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="To help you get started Cavy provides a command-line interface (called"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Installing · Cavy"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cavy.app/"/><meta property="og:description" content="To help you get started Cavy provides a command-line interface (called"/><meta property="og:image" content="https://cavy.app/img/cavy.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://cavy.app/img/cavy.png"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -62,11 +62,16 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Installing</h1></header><article><div><span><p><em>In these guides, we'll use cavy-cli to get set up and run tests. You can also
-use Cavy without the CLI. Have a look at the <a href="https://github.com/pixielabs/cavy">Cavy README</a>
-for help with this. Please note that you can't use the CLI with Expo apps.</em></p>
-<p>To get started with Cavy, install <strong>cavy-cli</strong> globally using yarn
-(or npm if preferred):</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Installing</h1></header><article><div><span><p>To help you get started Cavy provides a command-line interface (called
+cavy-cli) which makes it easier to get set up and run your tests.</p>
+<p>You can also run Cavy tests without cavy-cli. In which case, skip the CLI
+installation step and just install cavy. You may want to do this if:</p>
+<ul>
+<li>You're using Expo (not currently supported via the CLI)</li>
+<li>You're integrating Cavy with your own custom reporting (e.g. <a href="../guides/cavy-native-reporter/installing-and-usage">Cavy Native Reporter</a>)</li>
+</ul>
+<hr>
+<p>To get started with Cavy, install <strong>cavy-cli</strong> globally using yarn or npm:</p>
 <pre><code class="hljs">yarn global add cavy-cli
 </code></pre>
 <p>Add Cavy to your React Native project as a development dependency:</p>
