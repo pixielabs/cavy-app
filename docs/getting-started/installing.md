@@ -4,12 +4,12 @@ title: Installing
 sidebar_label: Installing
 ---
 
-_In these guides, we'll use cavy-cli to get set up and run tests. You can also
-use Cavy without the CLI. Have a look at the [Cavy README](https://github.com/pixielabs/cavy)
-for help with this. Please note that you can't use the CLI with Expo apps._
+_To help you get started Cavy provides a command-line interface (called
+cavy-cli) which makes it easier to get set up and run your tests. You can't use
+the CLI if you use Expo. In which case, skip the CLI installation step and just
+install `cavy`._
 
-To get started with Cavy, install **cavy-cli** globally using yarn
-(or npm if preferred):
+To get started with Cavy, install **cavy-cli** globally using yarn or npm:
 
     yarn global add cavy-cli
 

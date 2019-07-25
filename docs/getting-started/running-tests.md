@@ -9,14 +9,15 @@ components hooked up, and your test cases written.
 
 ## Importing your specs
 
-The final step before you can run your tests is to import them in `index.test.js`
-and pass them to the Cavy Tester.
+The final step before you can run your tests is to import them and pass them to
+the Cavy Tester.
 
-Open `index.test.js`, import your tests, and replace the `ExampleSpec` in the 
-Tester's `specs` prop with your specs:
+Open `index.test.js` (or `index.{ios,android}.js` for non-cli users), import
+your tests, and replace the `ExampleSpec` in the Tester's `specs` prop with
+your specs:
 
 ```jsx
-// index.test.js
+// index.test.js or your app entry point.
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
@@ -74,6 +75,16 @@ the entry point Cavy should use. [See the guide for custom entry points](../guid
 
 * By default, Cavy sends its test report to cavy-cli, but you can also use a
 custom reporter. [See the guide on writing your own custom reporter](../guides/writing-custom-reporters).
+
+## Running tests without cavy-cli
+
+If you've been following along without cavy-cli, your tests will just
+automatically run when you boot your app. It's down to you to decide how to 
+control this within your app so that they only run when you want them to.
+
+You could try [swapping your app to use cavy-cli](../getting-started/setting-cavy-up#if-you-are-using-cavy-cli)
+or finding some way to configure your app to not mount a Cavy `<Tester>`
+component during boot.
 
 ## Sample app
 
