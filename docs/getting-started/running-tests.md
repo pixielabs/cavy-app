@@ -12,7 +12,7 @@ components hooked up, and your test cases written.
 The final step before you can run your tests is to import them and pass them to
 the Cavy Tester.
 
-Open `index.test.js` (or `index.{ios,android}.js` for non-cli users), import
+Open `index.test.js` (or your application entry file for non-cli users), import
 your tests, and replace the `ExampleSpec` in the Tester's `specs` prop with
 your specs:
 
