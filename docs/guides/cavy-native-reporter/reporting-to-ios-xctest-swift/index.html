@@ -77,18 +77,18 @@ project).</li>
 
 <span class="token keyword">class</span> <span class="token class-name">BridgeTest</span><span class="token punctuation">:</span> <span class="token builtin">XCTestCase</span> <span class="token punctuation">{</span>
   <span class="token keyword">func</span> <span class="token function">testBridge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> expectation <span class="token operator">=</span> <span class="token function">XCTestExpectation</span><span class="token punctuation">(</span>description<span class="token punctuation">:</span> <span class="token string">"Cavy tests passed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> expectation <span class="token operator">=</span> <span class="token function">XCTestExpectation</span><span class="token punctuation">(</span>description<span class="token punctuation">:</span> <span class="token string">"Cavy tests passed"</span><span class="token punctuation">)</span>
 
     <span class="token builtin">CavyNativeReporter</span><span class="token punctuation">.</span>onFinish <span class="token punctuation">{</span> report <span class="token keyword">in</span>
-      <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">"%@"</span><span class="token punctuation">,</span> report<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> errorCount <span class="token operator">=</span> report<span class="token punctuation">[</span><span class="token string">"errorCount"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">Int</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>errorCount <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">XCTFail</span><span class="token punctuation">(</span><span class="token string">"Cavy tests had one or more errors"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">"%@"</span><span class="token punctuation">,</span> report<span class="token punctuation">)</span>
+      <span class="token keyword">let</span> errorCount <span class="token operator">=</span> report<span class="token punctuation">[</span><span class="token string">"errorCount"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">0</span>
+      <span class="token keyword">if</span> errorCount <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">{</span>
+        <span class="token function">XCTFail</span><span class="token punctuation">(</span><span class="token string">"Cavy tests had one or more errors"</span><span class="token punctuation">)</span>
       <span class="token punctuation">}</span>
-      expectation<span class="token punctuation">.</span><span class="token function">fulfill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      expectation<span class="token punctuation">.</span><span class="token function">fulfill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 
-    <span class="token function">wait</span><span class="token punctuation">(</span><span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>expectation<span class="token punctuation">]</span><span class="token punctuation">,</span> timeout<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">wait</span><span class="token punctuation">(</span><span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>expectation<span class="token punctuation">]</span><span class="token punctuation">,</span> timeout<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
