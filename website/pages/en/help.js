@@ -50,6 +50,12 @@ function Help(props) {
             <h1>Need help?</h1>
           </header>
           <p>This project is maintained by the dedicated folk at <a href="https://pixielabs.io" target="_blank">Pixie Labs</a>.</p>
+          <p>
+            You can chat with us and other Cavy users{' '}
+            <a href="https://discord.gg/4NMFMmz">
+              on our Discord
+            </a>.
+          </p>
           <GridBlock contents={supportLinks} layout="threeColumn" />
         </div>
       </Container>

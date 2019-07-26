@@ -43,6 +43,15 @@ class HomeSplash extends React.Component {
               height="18"
             />
           </a>
+          <a
+            className="badge"
+            href="https://discord.gg/4NMFMmz">
+            <img
+              src="https://discordapp.com/api/guilds/604246649845448735/widget.png?style=shield"
+              alt="Discord badge"
+              height="18"
+            />
+          </a>
         </div>
       </div>
     );
@@ -88,6 +97,9 @@ class HomeSplash extends React.Component {
           </Button>
           <Button href="https://github.com/pixielabs/cavy/tree/master/sample-app/CavyDirectory">
             Browse Sample App
+          </Button>
+          <Button href="https://discord.gg/4NMFMmz">
+            Join the Discord
           </Button>
         </PromoSection>
       </SplashContainer>
