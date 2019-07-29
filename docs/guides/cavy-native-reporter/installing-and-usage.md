@@ -4,8 +4,8 @@ title: Using Cavy Native Reporter
 sidebar_label: Using Cavy Native Reporter
 ---
 
-Cavy Native Reporter allows you to send your Cavy test results to native
-Android and iOS test runners.
+[Cavy Native Reporter](https://github.com/pixielabs/cavy-native-reporter)
+allows you to send your Cavy test results to native Android and iOS test runners.
 
 By default Cavy reports a completed test run to [cavy-cli](getting-started/installing.md).
 Cavy Native Reporter provides an alternative reporter for Cavy which fires
