@@ -12,15 +12,15 @@ test hooks.
 
 ## Reference
 
-### `generateTestHook(identifier, [func])`
+### `generateTestHook(identifier, [ref])`
 
-Returns the ref generating function that adds components to the TestHookStore, if
-defined.
+Returns the ref generating function that adds components to the TestHookStore.
 
 * `identifier`: (`String`) Identifier for the component that is used in tests.
-* `func`: (`Function`) Optional - your own ref generating function.
+* `ref`: (`Function | RefObject`) Optional - your own ref generating function or
+ref attribute created via `React.createRef()`.
 
---- 
+---
 ### `hook(wrappedComponent)`
 
 Higher-order React component that makes `generateTestHook` available as props to
