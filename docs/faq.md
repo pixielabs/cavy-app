@@ -4,6 +4,12 @@ title: Frequently Asked Questions
 sidebar_label: Cavy FAQ's
 ---
 
+### I'm trying to test a `<Text>` component and am getting the error: `Cannot read property 'children' of undefined`
+
+You need to `wrap` your `<Text>` component before testing it, otherwise Cavy
+does not have access to its props. [See the API documentation](./api/test-hooks#wrapcomponent)
+for examples of using the `wrap` function.
+
 ### How does Cavy compare to Appium? What is the benefit?
 
 Cavy is a comparable tool to Appium. The key difference is that Appium uses
