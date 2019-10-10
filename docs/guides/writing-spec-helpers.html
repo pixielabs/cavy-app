@@ -66,30 +66,27 @@
 you can write your own spec helper function.</p>
 <p>Your function will need to be <strong>asynchronous</strong> and should <strong>throw an error</strong> in
 situations where you want the test to fail.</p>
-<p>For example, the following tests whether a <code>&lt;Text&gt;</code> component displays the
-correct text:</p>
+<p>For example, the following tests whether a <code>&lt;Button&gt;</code> component is disabled:</p>
 <pre><code class="hljs css language-js"><span class="token comment">// specs/helpers.js</span>
 
-<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">containsText</span><span class="token punctuation">(</span><span class="token parameter">component<span class="token punctuation">,</span> text</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>component<span class="token punctuation">.</span>props<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Could not find text </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>text<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">isDisabled</span><span class="token punctuation">(</span><span class="token parameter">button</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>button<span class="token punctuation">.</span>props<span class="token punctuation">.</span>disabled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Button not disabled.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Then in your spec, you can import your helper and use it as you would any
-other helper:</p>
+<p>Then in your spec, you can import your helper and pass in the component using
+<code>findComponent()</code>:</p>
 <pre><code class="hljs css language-js"><span class="token comment">// specs/AppSpec.js</span>
 
-<span class="token comment">// Import your spec helper</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> containsText <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./helpers'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> isDisabled <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./helpers'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">spec</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  spec<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Changing the text'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    spec<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'works'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">await</span> spec<span class="token punctuation">.</span><span class="token function">press</span><span class="token punctuation">(</span><span class="token string">'Scene.button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token keyword">await</span> spec<span class="token punctuation">.</span><span class="token function">findComponent</span><span class="token punctuation">(</span><span class="token string">'Scene.text'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment">// Use your spec helper to test that the correct text is displayed</span>
-      <span class="token keyword">await</span> <span class="token function">containsText</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> <span class="token string">'you pressed the button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  spec<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'The button'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    spec<span class="token punctuation">.</span><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'is disabled'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token keyword">await</span> spec<span class="token punctuation">.</span><span class="token function">findComponent</span><span class="token punctuation">(</span><span class="token string">'Scene.Button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// Use your spec helper to test that the button is disabled</span>
+      <span class="token keyword">await</span> <span class="token function">isDisabled</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>

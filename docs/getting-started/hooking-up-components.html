@@ -70,28 +70,25 @@ register the components you want to interact with in your tests.</p>
 <h2><a class="anchor" aria-hidden="true" id="how-does-this-work"></a><a href="#how-does-this-work" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How does this work?</h2>
 <p>Cavy uses <a href="https://reactjs.org/docs/refs-and-the-dom.html">React ref generating functions</a>.
 We'll pass our components a ref using <code>generateTestHook</code>, which returns the
-ref generating function that adds components to the TestHookStore, making them
+ref generating function that adds components to the <code>TestHookStore</code>, making them
 available to us in our specs.</p>
 <p><code>generateTestHook</code> takes a string as an argument, which is the identifier
 we'll use in our tests to reference the component. It can be anything you
 like - make sure to use something that is easy to understand to keep your tests
 readable!</p>
-<p>There are three ways of getting access to <code>generateTestHook</code>:</p>
+<p>There are two ways of getting access to <code>generateTestHook</code>:</p>
 <ul>
-<li><a href="#usecavy-react-hook"><code>useCavy()</code> React Hook</a> - the modern approach</li>
-<li><a href="#using-cavy-s-hook-function">Cavy's <code>hook</code> function</a> - the older approach</li>
-<li><a href="#using-cavy-s-wrap-function">Cavy's <code>wrap</code> function</a> - when you want to
-interact with a function component you don't control.</li>
+<li>using <a href="#usecavy-react-hook"><code>useCavy()</code> React Hook</a> - the modern approach</li>
+<li>using <a href="#hook-function"><code>hook()</code> function</a> - the older approach</li>
 </ul>
+<p>For testing function components that cannot be assigned a ref directly, you can
+use Cavy's <a href="#wrap-function"><code>wrap</code> function</a> to create testable versions of
+these components. You will also need to <code>wrap</code> native components like <code>Text</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="usecavy-react-hook"></a><a href="#usecavy-react-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>useCavy()</code> React Hook</h3>
-<p>If you're using React Hooks and would like to test a function component, you can
-call the custom <code>useCavy()</code> React Hook to obtain the <code>generateTestHook</code> function
-that you can pass to inner components' refs:</p>
-<pre><code class="hljs css language-jsx"><span class="token comment">// src/components/MyComponent.js</span>
-
-<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> View<span class="token punctuation">,</span> TextInput <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
-
+<p>If you're using React Hooks, you can call the custom <code>useCavy()</code> React Hook to
+obtain the <code>generateTestHook</code> function and assign a ref to the component you
+want to test:</p>
+<pre><code class="hljs css language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> View<span class="token punctuation">,</span> TextInput <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> useCavy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -100,26 +97,23 @@ that you can pass to inner components' refs:</p>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TextInput</span></span>
-        <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'MyComponent.TextInput'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.TextInput'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
         <span class="token attr-name">onChangeText</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></span>
       <span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>   
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="using-cavys-hook-function"></a><a href="#using-cavys-hook-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Cavy's <code>hook</code> function</h3>
-<p>Cavy provides a <code>hook</code> function which makes <code>generateTestHook</code> available as props.
-You'll need to import the <code>hook</code> function, add a ref using the <code>generateTestHook</code>
-function, then export a hooked version of the parent component:</p>
-<pre><code class="hljs css language-jsx"><span class="token comment">// src/Scene.js</span>
-
-<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<h3><a class="anchor" aria-hidden="true" id="hook-function"></a><a href="#hook-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>hook()</code> function</h3>
+<p>Cavy also provides a <code>hook</code> function which makes <code>generateTestHook</code> available as
+in props. As assign a red to the component you want to test and then export a
+hooked version of your parent component:</p>
+<pre><code class="hljs css language-js"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> View<span class="token punctuation">,</span> TextInput <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> hook <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Scene</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+<span class="token keyword">class</span> <span class="token class-name">Scene</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
   <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TextInput</span></span>
@@ -134,45 +128,54 @@ function, then export a hooked version of the parent component:</p>
 <span class="token keyword">const</span> TestableScene <span class="token operator">=</span> <span class="token function">hook</span><span class="token punctuation">(</span>Scene<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> TestableScene<span class="token punctuation">;</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="using-cavys-wrap-function"></a><a href="#using-cavys-wrap-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Cavy's <code>wrap</code> function</h3>
-<p>If you'd like to test a function component to which you can't assign a ref,
-for example if you're importing a third-party function component, create
-a testable version of it using the <code>wrap</code> function, then assign it a ref using
-<code>generateTestHook</code> as normal.</p>
-<pre><code class="hljs css language-jsx"><span class="token comment">// src/Scene.js</span>
+<h3><a class="anchor" aria-hidden="true" id="wrap-function"></a><a href="#wrap-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>wrap()</code> function</h3>
+<p>You can use Cavy's <code>wrap</code> function to achieve two things:</p>
+<h4><a class="anchor" aria-hidden="true" id="1-testing-function-components"></a><a href="#1-testing-function-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Testing function components</h4>
+<p>If you'd like to test a function component to which you can't assign a ref (for
+example if you're importing a third-party function component), create a testable
+version of it using the <code>wrap</code> function, then assign it a ref as normal using
+<code>generateTestHook</code>:</p>
+<pre><code class="hljs css language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> FunctionComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'some-ui-library'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useCavy<span class="token punctuation">,</span> wrap <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
 
-<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> View <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> FunctionComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'some-ui-library'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> hook<span class="token punctuation">,</span> wrap <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> generateTestHook <span class="token operator">=</span> <span class="token function">useCavy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> TestableFunctionComponent <span class="token operator">=</span> <span class="token function">wrap</span><span class="token punctuation">(</span>FunctionComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Scene</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
-  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment">// Wrap a function component to which you can't assign a ref so that</span>
-    <span class="token comment">// you can test it with Cavy.</span>
-    <span class="token keyword">const</span> TestableFunctionComponent <span class="token operator">=</span> <span class="token function">wrap</span><span class="token punctuation">(</span>FunctionComponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TestableFunctionComponent</span></span>
-          <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.FunctionComponent'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-          <span class="token attr-name">otherProp</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></span>
-        <span class="token punctuation">/></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>      
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment">// You need to wrap the Scene component in Cavy's `hook` function to make</span>
-<span class="token comment">// `generateTestHook` available to it.</span>
-<span class="token keyword">const</span> TestableScene <span class="token operator">=</span> <span class="token function">hook</span><span class="token punctuation">(</span>Scene<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> TestableScene<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TestableFunctionComponent</span></span>
+      <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.FunctionComponent'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token punctuation">/></span></span>   
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
+<h4><a class="anchor" aria-hidden="true" id="2-testing-native-components-like-text"></a><a href="#2-testing-native-components-like-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Testing native components like <code>&lt;Text&gt;</code></h4>
+<p>If you want to test a <code>&lt;Text&gt;</code> component using the <code>containsText</code> helper method,
+or by accessing it's props directly, <strong>you must wrap the Text component
+itself</strong>:</p>
+<pre><code class="hljs css language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Text <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useCavy<span class="token punctuation">,</span> wrap <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> generateTestHook <span class="token operator">=</span> <span class="token function">useCavy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> TestableText <span class="token operator">=</span> <span class="token function">wrap</span><span class="token punctuation">(</span>Text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TestableText</span></span>
+      <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.Text'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token punctuation">/></span></span>   
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>If you assign a ref directly to <code>&lt;Text&gt;</code>, the component returned does not expose
+the props and you will not be able to test the children it renders.</p>
+<p><strong>Note:</strong> If you only want to test the presence of a <code>&lt;Text&gt;</code> component, you do
+not need to wrap it before assigning it a ref.</p>
 <h4><a class="anchor" aria-hidden="true" id="see-also"></a><a href="#see-also" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also</h4>
 <ul>
 <li><a href="../api/test-hooks#generatetesthookidentifier-func"><code>generateTestHook</code></a></li>
 <li><a href="../api/test-hooks#hookwrappedcomponent"><code>hook</code></a></li>
-<li><a href="../api/test-hooks#wrapfunctioncomponent"><code>wrap</code></a></li>
+<li><a href="../api/test-hooks#wrapcomponent"><code>wrap</code></a></li>
 <li><a href="../api/test-hooks#usecavy"><code>useCavy</code></a></li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/getting-started/setting-cavy-up"><span class="arrow-prev">← </span><span>Setting up the Cavy Tester</span></a><a class="docs-next button" href="/docs/getting-started/writing-tests"><span>Writing test cases</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-does-this-work">How does this work?</a><ul class="toc-headings"><li><a href="#usecavy-react-hook"><code>useCavy()</code> React Hook</a></li><li><a href="#using-cavys-hook-function">Using Cavy's <code>hook</code> function</a></li><li><a href="#using-cavys-wrap-function">Using Cavy's <code>wrap</code> function</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Cavy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting-started/installing">Getting Started</a><a href="/docs/guides/writing-spec-helpers">Guides</a><a href="/docs/api/commands">API Reference</a></div><div><h5>Community</h5><a href="/help">Help</a><a href="/contributors">Contributors</a><a href="/media">Further reading</a></div><div><h5>More</h5><a href="https://github.com/pixielabs/cavy">GitHub</a><div><a class="github-button" href="https://github.com/pixielabs/cavy" data-icon="octicon-star" data-count-href="/pixielabs/cavy/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div><div><a class="github-button" href="https://github.com/pixielabs" aria-label="Follow @pixielabs on GitHub">Follow @pixielabs</a></div><div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Up and testing in no time at all with Cavy!" data-url="https://cavy.app" data-via="pixielabs" data-hashtags="reactnative" data-related="" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script></div></div></section><section class="copyright">Copyright © 2019 Pixie Labs</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/getting-started/setting-cavy-up"><span class="arrow-prev">← </span><span>Setting up the Cavy Tester</span></a><a class="docs-next button" href="/docs/getting-started/writing-tests"><span>Writing test cases</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-does-this-work">How does this work?</a><ul class="toc-headings"><li><a href="#usecavy-react-hook"><code>useCavy()</code> React Hook</a></li><li><a href="#hook-function"><code>hook()</code> function</a></li><li><a href="#wrap-function"><code>wrap()</code> function</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Cavy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting-started/installing">Getting Started</a><a href="/docs/guides/writing-spec-helpers">Guides</a><a href="/docs/api/commands">API Reference</a></div><div><h5>Community</h5><a href="/help">Help</a><a href="/contributors">Contributors</a><a href="/media">Further reading</a></div><div><h5>More</h5><a href="https://github.com/pixielabs/cavy">GitHub</a><div><a class="github-button" href="https://github.com/pixielabs/cavy" data-icon="octicon-star" data-count-href="/pixielabs/cavy/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div><div><a class="github-button" href="https://github.com/pixielabs" aria-label="Follow @pixielabs on GitHub">Follow @pixielabs</a></div><div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Up and testing in no time at all with Cavy!" data-url="https://cavy.app" data-via="pixielabs" data-hashtags="reactnative" data-related="" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script></div></div></section><section class="copyright">Copyright © 2019 Pixie Labs</section></footer></div></body></html>
