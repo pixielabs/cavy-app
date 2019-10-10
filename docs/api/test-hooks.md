@@ -1,5 +1,5 @@
 ---
-id: test-hooks 
+id: test-hooks
 title: Test Hooks
 ---
 
@@ -21,82 +21,110 @@ Returns the ref generating function that adds components to the TestHookStore.
 ref attribute created via `React.createRef()`.
 
 ---
-### `hook(wrappedComponent)`
+### `useCavy()`
 
-Higher-order React component that makes `generateTestHook` available as props to
-the children of a component.
-
-* `wrappedComponent` - React Component to be wrapped.
+Cavy's custom React Hook that returns the `generateTestHook` function.
 
 #### Example
 
-```jsx
-import { hook } from cavy;
+```js
+import { useCavy } from 'cavy';
 
-class MyComponent extends React.Component {
+export default ()  => {
+  const generateTestHook = useCavy();
+  return <input ref={ generateTestHook('Input') }/>
+}
+```
+
+---
+### `hook(wrappedComponent)`
+
+Higher-order React component that makes `generateTestHook` available as a prop.
+An alternative to `useCavy()`.
+
+* `wrappedComponent` - React component to be wrapped.
+
+#### Example
+
+```js
+import React from 'react';
+import { hook } from 'cavy';
+
+class Scene extends React.Component {
   render() {
     const { generateTestHook } = this.props;
 
     return (
       <TextInput
-        ref={generateTestHook('MyComponent.textinput', (c) => this.textInput = c)}
-        ...
+        ref={generateTestHook('Scene.TextInput', (c) => this.textInput = c)}
       />
       <Button
-        ref={generateTestHook('MyComponent.button')}
+        ref={generateTestHook('Scene.Button')}
         title='Press me!'
       />
     );
   }
 }
 
-const TestableMyComponent = hook(MyComponent);
-export default TestableMyComponent;
+const TestableScene = hook(Scene);
+export default TestableScene;
 ```
 
 ---
-### `wrap(functionComponent)`
+### `wrap(component)`
 
-Higher-order React component that wraps a function component using React's
-[`forwardRef`](https://reactjs.org/docs/forwarding-refs.html) and
+Higher order React component that makes non-testable components testable.
+
+#### 1. Function components
+
+`wrap` uses [`forwardRef`](https://reactjs.org/docs/forwarding-refs.html) and
 [`useImperativeHandle`](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
-to make its properties available via the ref so that Cavy can interact with via
-the TestHookStore.
+to make a function component's props available via the ref so that Cavy can
+interact with it during testing:
 
-* `functionComponent` - The function component you want to test.
-
-#### Example
-
-```jsx
-import { Button } from 'react-native-elements';
-import { hook, wrap } from 'cavy';
-
-class MyComponent extends React.Component {
-  // ...
-  render() {
-    const WrappedButton = wrap(Button);
-
-    return (
-      <WrappedButton ref={this.generateTestHook('button')} onPress={}/>
-    )
-  }
-}
-export default hook(MyComponent);
-```
-
----
-### `useCavy()`
-
-Custom React Hook that returns a function that you can pass into an inner
-component's ref to add that component to the TestHookStore.
+* `component` - The function component you want to test.
 
 #### Example
 
-```jsx
-import { useCavy } from 'cavy';
+```js
+import { FunctionComponent } from 'some-ui-library';
+import { useCavy, wrap } from 'cavy';
 
-export default ()  => {
+export default () => {
   const generateTestHook = useCavy();
-  return <input ref={ generateTestHook('MyInput') }/>
-}
+  const TestableFunctionComponent = wrap(FunctionComponent);
+
+  return (
+    <TestableFunctionComponent
+      ref={generateTestHook('Scene.FunctionComponent')}
+    />   
+  )
+};
 ```
+
+#### 2. Native components like `<Text>`
+`wrap` wraps a native component like `Text`, (which is neither a React Class nor
+a Function Component), and returns a React Class with testable props.
+
+* `component` - The function component you want to test.
+
+#### Example
+
+```js
+import { Text } from 'react-native';
+import { useCavy, wrap } from 'cavy';
+
+export default () => {
+  const generateTestHook = useCavy();
+  const TestableText = wrap(Text);
+
+  return (
+    <TestableText
+      ref={generateTestHook('Scene.Text')}
+    />   
+  )
+};
+```
+
+**Note:** If you only want to test the presence of a `<Text>` component, you do
+not need to wrap it before assigning it a ref.
