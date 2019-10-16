@@ -23,7 +23,9 @@ from `describe` when Cavy outputs to the console.
 * `function`: (`Function`) The test case.
 
 ### `.beforeEach(function)`
-Runs a function before each test case.
+Runs a function before each test case. This function is called after Cavy
+clears `AsyncStorage`, but before the app is re-rendered. This means you can
+use `beforeEach` to manipulate state before the app is re-rendered.
 
 * `function`: (`Function`) The function to run before the tests.
 
