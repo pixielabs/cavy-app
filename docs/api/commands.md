@@ -10,7 +10,7 @@ Available with cavy-cli.
 
 ## Reference
 
-### `cavy-init`
+### `cavy init`
 
 ```bash
 cavy init [<specFolderName>]
@@ -25,42 +25,57 @@ spec files. Defaults to `specs`.
 
 ---
 
-### `cavy-run-ios`
+### `cavy run-ios`
 
 ```bash
-cavy run-ios [--file <filename>] [options]
+cavy run-ios [options] [rn-options]
 ```
 
-Run tests in iOS. Calls `react-native run-ios` under the hood.
+Run tests on iOS.
 
-* `--file <filename>`: Specify the app entry point. By default, Cavy
+`options`:
+* `-f, --file <file>`: Specify the app entry point. By default, Cavy
 looks for an `index.js`.
-* `options`: Any [react-native-cli](https://www.npmjs.com/package/react-native-cli) options that are valid for `react-native run-ios`.
+* `-s, --skipbuild`: Start the test server and listen for results without first
+building the app. Assumes your app is already running.
+* `-d, --dev`: Start the test server and keep it running until manually killed.
+For use with hot-reloading.
+
+`rn-options:`
+* Any [react-native-cli](https://www.npmjs.com/package/react-native-cli) options that are valid for `react-native run-ios`.
 
 #### Examples
 
 Set `index.ios.js` as the entry point:
 
 ```bash
-cavy run-ios --file index.ios.js
+cavy run-ios -f index.ios.js
 ```
 
 Set a custom entry point and specify a device (see [React Native: Running On
 Simulator](https://facebook.github.io/react-native/docs/running-on-simulator-ios)):
 ```bash
-cavy run-ios --file index.ios.js --simulator="iPhone 4s"
+cavy run-ios -f index.ios.js --simulator="iPhone 4s"
 ```
+
+Run Cavy tests in dev mode having built and started your app independently:
+
+```bash
+cavy run-ios -d -s
+```
+
+#### Note
+If you choose not to skip the build, then Cavy CLI will build and run your app
+using `react-native run-ios` under the hood.
 
 ---
 
-### `cavy-run-android`
+### `cavy run-android`
 
 ```bash
-cavy run-android [--file <filename>] [options]
+cavy run-android [options] [rn-options]
 ```
 
-Run tests in Android. Calls `react-native run-android` under the hood.
+Run tests on Android.
 
-* `--file <filename>`: Specify the app entry point. By default, Cavy
-looks for an `index.js`.
-* `options`: Any [react-native-cli](https://www.npmjs.com/package/react-native-cli) options that are valid for `react-native run-android`.
+Options are the same as for `cavy run-ios`.
