@@ -63,6 +63,8 @@ cavy run-android
 
 This will boot your app, run the tests and output the results to the console.
 
+For a full list of cavy-cli options, see the [API reference](../api/commands).
+
 #### Note on running tests via cavy-cli
 
 * Under the hood, cavy-cli calls react-native-cli commands. This means you can
@@ -79,7 +81,7 @@ custom reporter. [See the guide on writing your own custom reporter](../guides/w
 ## Running tests without cavy-cli
 
 If you've been following along without cavy-cli, your tests will just
-automatically run when you boot your app. It's down to you to decide how to 
+automatically run when you boot your app. It's down to you to decide how to
 control this within your app so that they only run when you want them to.
 
 You could try [swapping your app to use cavy-cli](../getting-started/setting-cavy-up#if-you-are-using-cavy-cli)
@@ -91,7 +93,7 @@ component during boot.
 Check out [the sample app](https://github.com/pixielabs/cavy/tree/master/sample-app/CavyDirectory)
 for example usage. Here it is running:
 
-![Sample app running](https://user-images.githubusercontent.com/126989/46629651-8b925e80-cb39-11e8-90b4-23d447d818f9.gif) 
+![Sample app running](https://user-images.githubusercontent.com/126989/46629651-8b925e80-cb39-11e8-90b4-23d447d818f9.gif)
 
 ## Find out more about the CLI
 
