@@ -68,7 +68,7 @@
 <li><a href="https://github.com/pixielabs/cavy-cli">View on GitHub</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="reference"></a><a href="#reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reference</h2>
-<h3><a class="anchor" aria-hidden="true" id="cavy-init"></a><a href="#cavy-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cavy-init</code></h3>
+<h3><a class="anchor" aria-hidden="true" id="cavy-init"></a><a href="#cavy-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cavy init</code></h3>
 <pre><code class="hljs css language-bash">cavy init [&lt;specFolderName&gt;]
 </code></pre>
 <p>Set up testing with Cavy within your React Native project. Creates a <code>specs</code>
@@ -79,31 +79,41 @@ will boot your app and run your specs.</p>
 spec files. Defaults to <code>specs</code>.</li>
 </ul>
 <hr>
-<h3><a class="anchor" aria-hidden="true" id="cavy-run-ios"></a><a href="#cavy-run-ios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cavy-run-ios</code></h3>
-<pre><code class="hljs css language-bash">cavy run-ios [--file &lt;filename&gt;] [options]
+<h3><a class="anchor" aria-hidden="true" id="cavy-run-ios"></a><a href="#cavy-run-ios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cavy run-ios</code></h3>
+<pre><code class="hljs css language-bash">cavy run-ios [options] [rn-options]
 </code></pre>
-<p>Run tests in iOS. Calls <code>react-native run-ios</code> under the hood.</p>
+<p>Run tests on iOS.</p>
+<p><code>options</code>:</p>
 <ul>
-<li><code>--file &lt;filename&gt;</code>: Specify the app entry point. By default, Cavy
+<li><code>-f, --file &lt;file&gt;</code>: Specify the app entry point. By default, Cavy
 looks for an <code>index.js</code>.</li>
-<li><code>options</code>: Any <a href="https://www.npmjs.com/package/react-native-cli">react-native-cli</a> options that are valid for <code>react-native run-ios</code>.</li>
+<li><code>-s, --skipbuild</code>: Start the test server and listen for results without first
+building the app. Assumes your app is already running.</li>
+<li><code>-d, --dev</code>: Start the test server and keep it running until manually killed.
+For use with hot-reloading.</li>
+</ul>
+<p><code>rn-options:</code></p>
+<ul>
+<li>Any <a href="https://www.npmjs.com/package/react-native-cli">react-native-cli</a> options that are valid for <code>react-native run-ios</code>.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h4>
 <p>Set <code>index.ios.js</code> as the entry point:</p>
-<pre><code class="hljs css language-bash">cavy run-ios --file index.ios.js
+<pre><code class="hljs css language-bash">cavy run-ios -f index.ios.js
 </code></pre>
 <p>Set a custom entry point and specify a device (see <a href="https://facebook.github.io/react-native/docs/running-on-simulator-ios">React Native: Running On
 Simulator</a>):</p>
-<pre><code class="hljs css language-bash">cavy run-ios --file index.ios.js --simulator=<span class="hljs-string">"iPhone 4s"</span>
+<pre><code class="hljs css language-bash">cavy run-ios -f index.ios.js --simulator=<span class="hljs-string">"iPhone 4s"</span>
 </code></pre>
+<p>Run Cavy tests in dev mode having built and started your app independently:</p>
+<pre><code class="hljs css language-bash">cavy run-ios -d -s
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="note"></a><a href="#note" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Note</h4>
+<p>If you choose not to skip the build, then Cavy CLI will build and run your app
+using <code>react-native run-ios</code> under the hood.</p>
 <hr>
-<h3><a class="anchor" aria-hidden="true" id="cavy-run-android"></a><a href="#cavy-run-android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cavy-run-android</code></h3>
-<pre><code class="hljs css language-bash">cavy run-android [--file &lt;filename&gt;] [options]
+<h3><a class="anchor" aria-hidden="true" id="cavy-run-android"></a><a href="#cavy-run-android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cavy run-android</code></h3>
+<pre><code class="hljs css language-bash">cavy run-android [options] [rn-options]
 </code></pre>
-<p>Run tests in Android. Calls <code>react-native run-android</code> under the hood.</p>
-<ul>
-<li><code>--file &lt;filename&gt;</code>: Specify the app entry point. By default, Cavy
-looks for an <code>index.js</code>.</li>
-<li><code>options</code>: Any <a href="https://www.npmjs.com/package/react-native-cli">react-native-cli</a> options that are valid for <code>react-native run-android</code>.</li>
-</ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/cavy-native-reporter/reporting-to-android"><span class="arrow-prev">← </span><span>Android example (JUnit)</span></a><a class="docs-next button" href="/docs/api/helpers"><span>Helpers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#reference">Reference</a><ul class="toc-headings"><li><a href="#cavy-init"><code>cavy-init</code></a></li><li><a href="#cavy-run-ios"><code>cavy-run-ios</code></a></li><li><a href="#cavy-run-android"><code>cavy-run-android</code></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Cavy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting-started/installing">Getting Started</a><a href="/docs/guides/writing-spec-helpers">Guides</a><a href="/docs/api/commands">API Reference</a></div><div><h5>Community</h5><a href="/help">Help</a><a href="/contributors">Contributors</a><a href="/media">Further reading</a></div><div><h5>More</h5><a href="https://github.com/pixielabs/cavy">GitHub</a><div><a class="github-button" href="https://github.com/pixielabs/cavy" data-icon="octicon-star" data-count-href="/pixielabs/cavy/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div><div><a class="github-button" href="https://github.com/pixielabs" aria-label="Follow @pixielabs on GitHub">Follow @pixielabs</a></div><div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Up and testing in no time at all with Cavy!" data-url="https://cavy.app" data-via="pixielabs" data-hashtags="reactnative" data-related="" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script></div></div></section><section class="copyright">Copyright © 2019 Pixie Labs</section></footer></div></body></html>
+<p>Run tests on Android.</p>
+<p>Options are the same as for <code>cavy run-ios</code>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/cavy-native-reporter/reporting-to-android"><span class="arrow-prev">← </span><span>Android example (JUnit)</span></a><a class="docs-next button" href="/docs/api/helpers"><span>Helpers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#reference">Reference</a><ul class="toc-headings"><li><a href="#cavy-init"><code>cavy init</code></a></li><li><a href="#cavy-run-ios"><code>cavy run-ios</code></a></li><li><a href="#cavy-run-android"><code>cavy run-android</code></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Cavy" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting-started/installing">Getting Started</a><a href="/docs/guides/writing-spec-helpers">Guides</a><a href="/docs/api/commands">API Reference</a></div><div><h5>Community</h5><a href="/help">Help</a><a href="/contributors">Contributors</a><a href="/media">Further reading</a></div><div><h5>More</h5><a href="https://github.com/pixielabs/cavy">GitHub</a><div><a class="github-button" href="https://github.com/pixielabs/cavy" data-icon="octicon-star" data-count-href="/pixielabs/cavy/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div><div><a class="github-button" href="https://github.com/pixielabs" aria-label="Follow @pixielabs on GitHub">Follow @pixielabs</a></div><div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Up and testing in no time at all with Cavy!" data-url="https://cavy.app" data-via="pixielabs" data-hashtags="reactnative" data-related="" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script></div></div></section><section class="copyright">Copyright © 2019 Pixie Labs</section></footer></div></body></html>
