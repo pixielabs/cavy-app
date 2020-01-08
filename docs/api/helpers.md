@@ -55,6 +55,12 @@ to `onChangeText`.
 * `identifier`: (`String`) Identifier for the component.
 * `str`: (`String`) String to fill in.
 
+### `.focus(identifier)`
+Focuses the identified component. Component must respond
+to `onFocus`.
+
+* `identifier`: (`String`) Identifier for the component.
+
 ### `.press(identifier)`
 Presses the identified component. Component must respond to `onPress`.
 
