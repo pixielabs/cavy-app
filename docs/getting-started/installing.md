@@ -27,4 +27,4 @@ Add Cavy to your React Native project as a development dependency:
 
 If you're using TypeScript, you'll also need to install the types package:
 
-    yarn add @types/cavy
+    yarn add @types/cavy --dev
