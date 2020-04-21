@@ -117,7 +117,7 @@ await spec.containsText('TextComponentID', 'string to be asserted');
 
 ### Focusing a component
 
-You can focus a component that responds to the `onFocus` prop (e.g. `<TextInput />`).
+You can focus a component that responds to the `onFocus` prop, such as `<TextInput />`.
 
 ```js
 await spec.focus('TextInputID');
