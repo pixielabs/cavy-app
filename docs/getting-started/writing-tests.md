@@ -107,6 +107,22 @@ You can enter text into TextInput components:
 await spec.fillIn('Input');
 ```
 
+### Asserting text content
+
+You can assert that a component (e.g. `<Text>`) contains a specified text string as a child.
+
+```js
+await spec.containsText('TextComponentID', 'string to be asserted');
+```
+
+### Focusing a component
+
+You can focus a component that responds to the `onFocus` prop (e.g. `<TextInput />`).
+
+```js
+await spec.focus('TextInputID');
+```
+
 ### Finding elements
 
 You can find specific elements in order to interact with them:
