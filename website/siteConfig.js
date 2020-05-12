@@ -26,6 +26,7 @@ const siteConfig = {
     { doc: "getting-started/installing", label: "Documentation" },
     { doc: "api/helpers", label: "API" },
     { href: "https://github.com/pixielabs/cavy", label: "GitHub" },
+    { href: "https://www.pivotaltracker.com/n/projects/2447582", label: "Roadmap" },
     { doc: "faq", label: "FAQ" }
   ],
 
