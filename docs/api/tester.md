@@ -37,7 +37,10 @@ const testHookStore = new TestHookStore();
 export default class AppWrapper extends React.Component {
   render() {
     return (
-      <Tester specs={[MyFeatureSpec, OtherFeatureSpec]} store={testHookStore}>
+      <Tester
+        specs={[MyFeatureSpec, OtherFeatureSpec]}
+        store={testHookStore}
+      >
         <App />
       </Tester>
     );
