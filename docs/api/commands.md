@@ -40,8 +40,8 @@ looks for an `index.js`.
 building the app. Assumes your app is already running.
 * `-d, --dev`: Start the test server and keep it running until manually killed.
 For use with hot-reloading.
-* `--xml`: Write the test results to an XML file which conforms to JUnit
-specification so that you can integrate Cavy with CI tools.
+* `--xml`: Write the test results to `cavy_results.xml`, which
+conforms to JUnit specification so that you can integrate Cavy with CI tools.
 
 
 `rn-options:`
