@@ -19,7 +19,7 @@ Creates a block that groups together several related test cases.
 ```js
 export default function(spec) {
   spec.describe('My Scene', function() {
-    // Test case goes in here
+    // A group of test cases goes here
   });
 }
 ```
