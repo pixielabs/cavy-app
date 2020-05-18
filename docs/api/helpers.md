@@ -162,13 +162,12 @@ via `generateTestHook`.
 
 ```js
 export default function(spec) {
-  import { hasButtonText } from './helpers';
-
-  spec.describe('Navigating to an employee profile', function() {
-    spec.it('reveals the email button with correct text', async function() {
+  spec.describe('Navigating to an employee information page', function() {
+    spec.it("shows the employee's phone number", async function() {
       await spec.press('EmployeeImage.AmyTaylor');
-      const button = await spec.findComponent('ActionBar.EmailButton');
-      await hasButtonText(button, 'Email Amy');
+      const link = await spec.findComponent('Employee.InfoLink');
+      link.props.onClick()
+      await spec.exists('Employee.PhoneNumber');
     });
   });
 }
