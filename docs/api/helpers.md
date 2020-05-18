@@ -166,7 +166,7 @@ export default function(spec) {
     spec.it("shows the employee's phone number", async function() {
       await spec.press('EmployeeImage.AmyTaylor');
       const link = await spec.findComponent('Employee.InfoLink');
-      link.props.onClick()
+      link.props.onClick();
       await spec.exists('Employee.PhoneNumber');
     });
   });
