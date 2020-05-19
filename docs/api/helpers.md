@@ -66,8 +66,6 @@ export default function(spec) {
 }
 ```
 
-
-
 ## Actions
 
 ### `.fillIn(identifier, str)`
@@ -90,6 +88,37 @@ export default function(spec) {
 }
 ```
 
+### `.findComponent(identifier)`
+
+Finds a component using its test hook identifier. Waits `this.waitTime` for the
+component to appear before abandoning.
+
+Returns a Promise which resolves to the component itself.
+
+This is useful for when you can't use one of Cavy's other helper functions to
+interact with your component. Find it using `.findComponent` and call one of
+the props yourself, or write your own assertion!
+
+See [Guides - Writing your own spec helpers](/guides/writing-spec-helpers) for
+an example of writing your own assertion.
+
+* `identifier`: (`String`) Identifier for the component.
+
+#### Example
+
+```js
+export default function(spec) {
+  spec.describe('Navigating to an employee information page', function() {
+    spec.it("shows the employee's phone number", async function() {
+      await spec.press('EmployeeImage.AmyTaylor');
+      const link = await spec.findComponent('Employee.InfoLink');
+      link.props.onClick();
+      await spec.exists('Employee.PhoneNumber');
+    });
+  });
+}
+```
+
 ### `.focus(identifier)`
 Focuses the identified component. Component must respond
 to `onFocus`.
@@ -104,24 +133,6 @@ export default function(spec) {
     spec.it('reveals the password constraints', async function() {
       await spec.focus('Password.New');
       await spec.exists('Password.Constraints');
-    });
-  });
-}
-```
-
-### `.press(identifier)`
-Presses the identified component. Component must respond to `onPress`.
-
-* `identifier`: (`String`) Identifier for the component.
-
-#### Example
-
-```js
-export default function(spec) {
-  spec.describe('Pressing the "Gallery" button', function() {
-    spec.it('takes the user to the employee image gallery', async function() {
-      await spec.press('Button.ToGallery');
-      await spec.exists('Employees.ImageGallery');
     });
   });
 }
@@ -148,26 +159,19 @@ export default function(spec) {
 }
 ```
 
-### `.findComponent(identifier)`
+### `.press(identifier)`
+Presses the identified component. Component must respond to `onPress`.
 
-Find a component by its test hook identifier. Waits `this.waitTime` for the
-component to appear before abandoning. Returns a Promise.
-
-Useful when your component doesn't respond to either `onChangeText` or `onPress`.
-
-* `identifier`: (`String`) Component identifier registered in the test hook store
-via `generateTestHook`.
+* `identifier`: (`String`) Identifier for the component.
 
 #### Example
 
 ```js
 export default function(spec) {
-  spec.describe('Navigating to an employee information page', function() {
-    spec.it("shows the employee's phone number", async function() {
-      await spec.press('EmployeeImage.AmyTaylor');
-      const link = await spec.findComponent('Employee.InfoLink');
-      link.props.onClick();
-      await spec.exists('Employee.PhoneNumber');
+  spec.describe('Pressing the "Gallery" button', function() {
+    spec.it('takes the user to the employee image gallery', async function() {
+      await spec.press('Button.ToGallery');
+      await spec.exists('Employees.ImageGallery');
     });
   });
 }
