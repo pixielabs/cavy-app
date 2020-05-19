@@ -184,6 +184,42 @@ Returns `true` if the component can be identified (i.e. is currently on screen).
 
 * `identifier`: (`String`) Identifier for the component.
 
+#### Example
+```js
+export default function(spec) {
+  spec.describe('A list of the employees', function() {
+    spec.it('can be filtered by search input', async function() {
+      await spec.fillIn('SearchBar.TextInput', 'Amy');
+      await spec.exists('EmployeeList.AmyTaylor');
+    });
+  });
+}
+```
+
+### `.containsText(identifier, str)`
+Returns `true` if the component contains the string as a child.
+
+If your component is a React Native `<Text>` component, then you'll need to
+`wrap` it first to make it testable. See
+[the documentation for `wrap`](/api/test-hooks#2-native-components-like-text)
+for an example.
+
+* `identifier`: (`String`) Identifier for the component.
+* `str`: (`String`) String is should contain.
+
+#### Example
+
+```js
+export default function(spec) {
+  spec.describe('Selecting an employee', function() {
+    spec.it('shows their job title', async function() {
+      await spec.press('EmployeeImage.AmyTaylor'); 
+      await spec.containsText('Employee.JobTitle', 'CEO');
+    });
+  });
+}
+```
+
 ### `.notExists(identifier)`
 
 Returns `true` if the component is absent from the screen.
@@ -195,10 +231,8 @@ Returns `true` if the component is absent from the screen.
 export default function(spec) {
   spec.describe('A list of the employees', function() {
     spec.it('can be filtered by search input', async function() {
-      await spec.exists('EmployeeList.JimCavy');
       await spec.fillIn('SearchBar.TextInput', 'Amy');
       await spec.notExists('EmployeeList.JimCavy');
-      await spec.exists('EmployeeList.AmyTaylor');
     });
   });
 }
