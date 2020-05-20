@@ -75,14 +75,14 @@ export default TestableScene;
 
 Higher order React component that makes non-testable components testable.
 
+* `component` - The function component you want to test.
+
 #### 1. Function components
 
 `wrap` uses [`forwardRef`](https://reactjs.org/docs/forwarding-refs.html) and
 [`useImperativeHandle`](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
 to make a function component's props available via the ref so that Cavy can
 interact with it during testing:
-
-* `component` - The function component you want to test.
 
 #### Example
 
@@ -103,10 +103,9 @@ export default () => {
 ```
 
 #### 2. Native components like `<Text>`
+
 `wrap` wraps a native component like `Text`, (which is neither a React Class nor
 a Function Component), and returns a React Class with testable props.
-
-* `component` - The function component you want to test.
 
 #### Example
 
