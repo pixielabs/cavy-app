@@ -3,7 +3,7 @@ id: commands
 title: CLI Commands
 ---
 
-These commands making testing your app easier and are available with cavy-cli.
+These commands make testing your app easier and are available with cavy-cli.
 
 * [See installation instructions](../getting-started/installing)
 * [View on GitHub](https://github.com/pixielabs/cavy-cli)
