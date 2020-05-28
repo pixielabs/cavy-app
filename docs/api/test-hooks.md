@@ -3,12 +3,14 @@ id: test-hooks
 title: Test Hooks
 ---
 
-Cavy interacts with elements through their refs, adding them to the TestHookStore
-where they are stored as an array of references for later use in specs. Depending
-on the component you are trying to test, there are several ways to add these
-test hooks.
+Cavy interacts with elements through their refs, storing them as 'test hooks' in
+the `TestHookStore` so that they can be refered to in your specs. Depending on
+the type of component you are testing, there are several ways to add these test
+hooks.
 
-* [See the guides for hooking up components](../getting-started/hooking-up-components)
+If you haven't already, take a look at
+[Hooking Up Components](../getting-started/hooking-up-components) for an
+for detailed guidance on adding test hooks to your components.
 
 ## Reference
 
@@ -16,14 +18,14 @@ test hooks.
 
 Returns the ref generating function that adds components to the TestHookStore.
 
-* `identifier`: (`String`) Identifier for the component that is used in tests.
+* `identifier`: (`String`) Identifier for the component you want to test.
 * `ref`: (`Function | RefObject`) Optional - your own ref generating function or
-ref attribute created via `React.createRef()`.
+  ref attribute created via `React.createRef()`.
 
 ---
 ### `useCavy()`
 
-Cavy's custom React Hook that returns the `generateTestHook` function.
+A custom React Hook that returns the `generateTestHook` function directly.
 
 #### Example
 
@@ -37,12 +39,13 @@ export default ()  => {
 ```
 
 ---
-### `hook(wrappedComponent)`
+### `hook(component)`
 
 Higher-order React component that makes `generateTestHook` available as a prop.
 An alternative to `useCavy()`.
 
-* `wrappedComponent` - React component to be wrapped.
+* `component` - The React component within which you want access to
+`generateTestHook`.
 
 #### Example
 
@@ -75,7 +78,7 @@ export default TestableScene;
 
 Higher order React component that makes non-testable components testable.
 
-* `component` - The function component you want to test.
+* `component` - The function, or Native, component you want to test.
 
 #### 1. Function components
 
