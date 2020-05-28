@@ -10,7 +10,7 @@ interface (called cavy-cli). We recommend you get started with this.
 You can also run Cavy tests without cavy-cli. In which case, skip the CLI
 installation step and just install cavy. You may want to do this if you're
 integrating Cavy with your own custom reporting(e.g.
-[Cavy Native Reporter](../guides/cavy-native-reporter/installing-and-usage))
+[Cavy Native Reporter](../guides/cavy-native-reporter/installing-and-usage)).
 
 Install **cavy-cli** globally using yarn or npm:
 
