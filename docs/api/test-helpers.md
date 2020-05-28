@@ -24,6 +24,8 @@ export default function(spec) {
 }
 ```
 
+---
+
 ### `.it(label, function)`
 
 Defines a test case.
@@ -43,6 +45,8 @@ export default function(spec) {
   });
 }
 ```
+
+---
 
 ### `.beforeEach(function)`
 Runs a function before each test case. This function is called after Cavy
@@ -88,6 +92,8 @@ export default function(spec) {
 }
 ```
 
+---
+
 ### `.findComponent(identifier)`
 
 Finds a component using its test hook identifier. Waits `this.waitTime` for the
@@ -119,6 +125,8 @@ export default function(spec) {
 }
 ```
 
+---
+
 ### `.focus(identifier)`
 Focuses the identified component. Component must respond
 to `onFocus`.
@@ -137,6 +145,8 @@ export default function(spec) {
   });
 }
 ```
+
+---
 
 ### `.pause(time)`
 
@@ -158,6 +168,8 @@ export default function(spec) {
   });
 }
 ```
+
+---
 
 ### `.press(identifier)`
 Presses the identified component. Component must respond to `onPress`.
@@ -196,6 +208,8 @@ export default function(spec) {
 }
 ```
 
+---
+
 ### `.containsText(identifier, str)`
 Returns `true` if the component contains the string as a child.
 
@@ -219,6 +233,8 @@ export default function(spec) {
   });
 }
 ```
+
+---
 
 ### `.notExists(identifier)`
 
