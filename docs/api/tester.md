@@ -9,7 +9,7 @@ your app should be wrapped inside a `<Tester>` component within `index.test.js`
 (or your app entry point). This creates a testable version of your app!
 
 As well as the required `specs` and `store`, there are a number of optional
-props you can pass into the `<Tester>` to change the way Cavy runs test. These
+props you can pass into the `<Tester>` to change the way Cavy runs tests. These
 are detailed below:
 
 ## Props
