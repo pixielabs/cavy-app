@@ -1,6 +1,6 @@
 ---
-id: helpers
-title: Helpers
+id: test-helpers
+title: Test Helpers
 ---
 
 Cavy provides a set of helpers for writing your test cases and interacting with

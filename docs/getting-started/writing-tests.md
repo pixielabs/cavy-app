@@ -63,7 +63,7 @@ export default function(spec) {
 
 #### See also
 
-* [beforeEach reference](../api/helpers#beforeeachfunction)
+* [beforeEach reference](../api/test-helpers#beforeeachfunction)
 * [Tester component API](../api/tester)
 
 ## The DSL
@@ -77,7 +77,7 @@ to do the following:
 * [Finding elements](#finding-elements)
 * [Pausing](#pausing)
 
-Below is an overview of what you can do with Cavy. See the [API](../api/helpers)
+Below is an overview of what you can do with Cavy. See the [API](../api/test-helpers)
 for a more comprehensive reference.
 
 
@@ -143,4 +143,4 @@ for a response before continuing:
 
 #### Reference
 
-* [Helpers API](../api/helpers)
+* [Test Helpers API](../api/test-helpers)

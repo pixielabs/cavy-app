@@ -4,12 +4,14 @@ title: Tester Component
 sidebar_label: Tester Component
 ---
 
-Wraps your entire app to run tests against that app, interacting
-with registered components in your test cases via the Cavy [helpers](helpers).
+As per the instructions in
+[Setting up the Cavy Tester](getting-starts/setting-cavy-up), your app should be
+wrapped inside a `<Tester>` component within `index.test.js`. This creates a
+testable version of your app!
 
-```jsx
-import { Tester } from 'cavy';
-```
+As well as the required `specs` and `store`, there are a number of optional
+props you can pass into the `<Tester>` to change the way Cavy runs test. These
+are detailed below:
 
 ## Props
 

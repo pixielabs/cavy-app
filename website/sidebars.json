@@ -13,6 +13,13 @@
       },
       "getting-started/running-tests"
     ],
+    "API reference": [
+      "api/tester",
+      "api/test-hooks",
+      "api/test-helpers",
+      "api/commands",
+      "api/cavy-native-reporter"
+    ],
     "Guides": [
       "guides/specifing-a-custom-app-entry-point",
       "guides/writing-spec-helpers",
@@ -27,13 +34,6 @@
           "guides/cavy-native-reporter/reporting-to-android"
         ]
       }
-    ],
-    "API reference": [
-      "api/commands",
-      "api/helpers",
-      "api/tester",
-      "api/test-hooks",
-      "api/cavy-native-reporter"
     ]
   }
 }
