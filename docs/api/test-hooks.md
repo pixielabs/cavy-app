@@ -9,7 +9,7 @@ the type of component you are testing, there are several ways to add these test
 hooks.
 
 If you haven't already, take a look at
-[Hooking Up Components](../getting-started/hooking-up-components) for an
+[Hooking Up Components](../getting-started/hooking-up-components)
 for detailed guidance on adding test hooks to your components.
 
 ## Reference
