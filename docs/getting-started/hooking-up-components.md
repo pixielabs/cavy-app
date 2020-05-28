@@ -5,11 +5,10 @@ sidebar_label: Hooking up components
 ---
 
 There are two parts to writing Cavy tests: registering the components you'd like
-to test so that the Cavy Tester knows about them, and writing the
-test cases.
+to test so that Cavy knows about them, and writing the test cases.
 
 In this section, we'll cover using Cavy's `generateTestHook` function to
-register the components you want to interact with in your tests.
+hook up the components you want to interact with in your tests.
 
 ## How does this work?
 

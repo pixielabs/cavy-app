@@ -24,7 +24,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { doc: "getting-started/installing", label: "Documentation" },
-    { doc: "api/helpers", label: "API" },
+    { doc: "api/test-helpers", label: "API" },
     { href: "https://github.com/pixielabs/cavy", label: "GitHub" },
     { href: "https://www.pivotaltracker.com/n/projects/2447582", label: "Roadmap" },
     { doc: "faq", label: "FAQ" }

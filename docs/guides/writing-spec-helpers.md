@@ -4,7 +4,7 @@ title: Writing your own spec helpers
 sidebar_label: Writing your own spec helpers
 ---
 
-If you'd like to test something that's not included in the [Cavy helpers](../api/helpers),
+If you'd like to test something that's not included in the [Cavy helpers](../api/test-helpers),
 you can write your own spec helper function.
 
 Your function will need to be **asynchronous** and should **throw an error** in

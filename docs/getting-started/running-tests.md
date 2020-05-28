@@ -4,13 +4,13 @@ title: Running tests
 sidebar_label: Running tests
 ---
 
-By now you should have Cavy installed, the Tester set up, your testable
-components hooked up, and your test cases written.
+By now you should have Cavy installed, the `<Tester>` set up, your testable
+components hooked up, _and_ your test cases written!
 
 ## Importing your specs
 
-The final step before you can run your tests is to import them and pass them to
-the Cavy Tester.
+The final step before you can run your tests is to import them and pass them
+into the `<Tester>`.
 
 Open `index.test.js` (or your application entry file for non-cli users), import
 your tests, and replace the `ExampleSpec` in the Tester's `specs` prop with
@@ -68,15 +68,31 @@ For a full list of cavy-cli options, see the [API reference](../api/commands).
 #### Note on running tests via cavy-cli
 
 * Under the hood, cavy-cli calls react-native-cli commands. This means you can
-pass in any react-native-cli options that are valid for either
-`react-native run-ios` or `react-native run-android`. [See the full reference
-for more on Cavy commands](../api/commands).
+  pass in any react-native-cli options that are valid for either
+  `react-native run-ios` or `react-native run-android`. [See the full reference
+  for more on Cavy commands](../api/commands).
 
 * If you're not using `index.js` as your app entry point, you'll need to specify
-the entry point Cavy should use. [See the guide for custom entry points](../guides/specifing-a-custom-app-entry-point).
+  the entry point Cavy should use.
+  [See the guide for custom entry points](../guides/specifing-a-custom-app-entry-point).
 
-* By default, Cavy sends its test report to cavy-cli, but you can also use a
-custom reporter. [See the guide on writing your own custom reporter](../guides/writing-custom-reporters).
+## Running tests with cavy-cli and Expo
+
+If you're using Expo, `cavy run-ios` or `cavy run-android` will fail to
+successfully build your app.
+
+Build your app separately and run your tests using:
+
+```bash
+# To test on iOS
+cavy run-ios --skipbuild
+
+# To test on Android
+cavy run-android --skipbuild
+```
+
+Passing in the `--skipbuild` option means that cavy-cli will assume your
+app is already running, and will wait for your test results.
 
 ## Running tests without cavy-cli
 
@@ -88,13 +104,6 @@ You could try [swapping your app to use cavy-cli](../getting-started/setting-cav
 or finding some way to configure your app to not mount a Cavy `<Tester>`
 component during boot.
 
-## Sample app
-
-Check out [the sample app](https://github.com/pixielabs/cavy/tree/master/sample-app/CavyDirectory)
-for example usage. Here it is running:
-
-![Sample app running](https://user-images.githubusercontent.com/126989/46629651-8b925e80-cb39-11e8-90b4-23d447d818f9.gif)
-
-## Find out more about the CLI
+#### Find out more about the CLI
 
  * [CLI commands reference](../api/commands#cavy-run-ios)

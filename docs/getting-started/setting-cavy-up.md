@@ -9,7 +9,7 @@ sidebar_label: Setting up the Cavy Tester
 
 ## If you are using cavy-cli
 
-Once you've downloaded cavy-cli and added Cavy to your project, you're ready to
+Once you've installed cavy-cli and added Cavy to your project, you're ready to
 get started. From within your React Native project, run:
 
     cavy init
@@ -58,9 +58,9 @@ the case, see [Specifying a custom app entry point](../guides/specifing-a-custom
 
 ## If you are not using cavy-cli
 
-Import Tester, TestHookStore and your specs in your top-level JS file
+Import the `Tester`, `TestHookStore` and your specs in your top-level JS file
 (typically this is your `index.{ios,android}.js` files). Instantiate a new
-TestHookStore and render your app inside a Tester.
+`TestHookStore` and render your app inside a `<Tester>` component.
 
 ```jsx
 // index.ios.js
@@ -83,7 +83,7 @@ export default class AppWrapper extends Component {
 }
 ```
 
-#### More on the Tester component
+#### Options for configuring your Tester component
 
 * [Tester component API](../api/tester)
 
