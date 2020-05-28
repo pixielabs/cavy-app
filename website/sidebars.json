@@ -11,7 +11,8 @@
           "getting-started/writing-tests"
         ]
       },
-      "getting-started/running-tests"
+      "getting-started/running-tests",
+      "getting-started/sample-app"
     ],
     "API reference": [
       "api/tester",
