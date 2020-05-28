@@ -3,7 +3,7 @@ id: commands
 title: CLI Commands
 ---
 
-Available with cavy-cli.
+These commands making testing your app easier and are available with cavy-cli.
 
 * [See installation instructions](../getting-started/installing)
 * [View on GitHub](https://github.com/pixielabs/cavy-cli)
@@ -43,7 +43,6 @@ For use with hot-reloading.
 * `--xml`: Write the test results to `cavy_results.xml`, conforming to JUnit XML
 specification. (This option requires Cavy >=3.3.0)
 
-
 `rn-options:`
 * Any [react-native-cli](https://www.npmjs.com/package/react-native-cli) options that are valid for `react-native run-ios`.
 
@@ -61,15 +60,17 @@ Simulator](https://facebook.github.io/react-native/docs/running-on-simulator-ios
 cavy run-ios -f index.ios.js --simulator="iPhone 4s"
 ```
 
-Run Cavy tests in dev mode having built and started your app independently:
+Run Cavy tests in dev mode having built and started your app manually:
 
 ```bash
 cavy run-ios -d -s
 ```
 
-#### Note
-If you choose not to skip the build, then Cavy CLI will build and run your app
-using `react-native run-ios` under the hood.
+#### Expo and cavy-cli
+By default, cavy-cli attempts to build and run your app using
+`react-native run-ios` under the hood. If you're using Expo this won't work!
+You'll have to manually build your app yourself and run your tests using the
+`--skipbuild` option.
 
 ---
 

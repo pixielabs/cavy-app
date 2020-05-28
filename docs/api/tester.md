@@ -5,8 +5,8 @@ sidebar_label: Tester Component
 ---
 
 As detailed in [Setting up the Cavy Tester](getting-starts/setting-cavy-up),
-your app should be wrapped inside a `<Tester>` component within `index.test.js`.
-This creates a testable version of your app!
+your app should be wrapped inside a `<Tester>` component within `index.test.js`
+(or your app entry point). This creates a testable version of your app!
 
 As well as the required `specs` and `store`, there are a number of optional
 props you can pass into the `<Tester>` to change the way Cavy runs test. These
