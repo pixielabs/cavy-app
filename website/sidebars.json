@@ -19,6 +19,7 @@
       "api/test-hooks",
       "api/test-helpers",
       "api/commands",
+      "api/filtering-tests",
       "api/cavy-native-reporter"
     ],
     "Guides": [

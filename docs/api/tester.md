@@ -16,12 +16,13 @@ are detailed below:
 
 | Name | Type | Description | Default |
 | :------------ |:---------------| :--------------- | :--------------- |
-| `specs` (required) | `Array` | Your spec functions | - |
+| `specs` (required) | `Array(Function)` | An array of your spec functions | - |
 | `store` (required) | `TestHookStore` | A store of references to UI components in your app | - |
-| `reporter` | `Function` | Called once all tests have finished. Takes the test report as an argument. If undefined, Cavy will send a test report to cavy-cli if it is running. | `undefined` |
-| `waitTime` | `Integer` | Time in milliseconds that your tests should wait to find a component | `2000` |
-| `startDelay` | `Integer` | Time in milliseconds before test execution begins | `0` |
 | `clearAsyncStorage` | `Boolean` | If true, clears `AsyncStorage` between each test e.g. to remove a logged in user | `false` |
+| `only` | `Array(String)` | An array of the test tags you'd like to include in the test run. If `null`, all tests are run. See [Filtering tests](filtering-tests) for examples. | `null` |
+| `reporter` | `Function` | Called once all tests have finished. Takes the test report as an argument. If undefined, Cavy will send a test report to cavy-cli if it is running. | `undefined` |
+| `startDelay` | `Integer` | Time in milliseconds before test execution begins | `0` |
+| `waitTime` | `Integer` | Time in milliseconds that your tests should wait to find a component | `2000` |
 
 ## Example
 
@@ -41,6 +42,10 @@ export default class AppWrapper extends React.Component {
       <Tester
         specs={[MyFeatureSpec, OtherFeatureSpec]}
         store={testHookStore}
+        clearAsyncStorage={true}
+        only={['focus']}
+        startDelay={5000}
+        waitTime={5000}
       >
         <App />
       </Tester>
