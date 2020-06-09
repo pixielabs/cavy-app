@@ -6,10 +6,10 @@ title: Filtering tests
 You can restrict which tests are run by 'tagging' them. You might want to do
 this if you're working on a particular app scene or user-flow.
 
-## Tagging individual tests
+## Tag your tests
 
-1. Pass your test tag as the third argument to your `spec.it` function. Here we're
-  using the tag 'focus':
+To tag an individual test, pass your tag as the third argument to your `spec.it`
+function. Here we're using the tag 'focus':
 
 ```js
 // specs/MyFeatureSpec.js
@@ -24,12 +24,34 @@ export default function(spec) {
 }
 ```
 
-2. Specify which tagged tests you want to run in your `<Tester>` components, using
-  the `only` array prop:
+You can also tag whole groups of tests, by passing your tag into
+`spec.describe`:
 
+```js
+// specs/MyFeatureSpec.js
+
+export default function(spec) {
+  spec.describe('My feature', function() {
+    spec.it('works', async function() {
+      await spec.press('Scene.button');
+      await spec.exists('NextScene');
+    });
+  }, 'focus');
+}
+```
+
+**Note:** if you tag a whole `spec.describe` function, Cavy will ignore any tags
+applied to individual tests it contains. The group tag takes precedent and is
+applied to all individual tests in that group.
+
+## Run your tests
+
+Specify which tests you want to run in your `<Tester>` component, using the
+`only` prop:
 
 ```jsx
 // index.test.js
+
 import { Tester, TestHookStore } from 'cavy';
 
 import MyFeatureSpec from './specs/MyFeatureSpec';
@@ -52,32 +74,8 @@ export default class AppWrapper extends React.Component {
 }
 ```
 
-The most common use-case is using one 'focus' style tag, to run either an
-individual test case, or a group of tests. However, you might want to organise
-your tests using multiple tags.
+Then run your tests as normal! In this example, only tests tagged with 'focus'
+will run.
 
-The `only` props takes an array of tags for this purpose.
-
-3. Run your tests as normal! Only tests tagged with 'focus' will run.
-
-## Tagging groups of tests
-
-This works in the same way as tagging individual tests, but instead of tagging
-your `spec.it` function, you tag your `spec.describe` function:
-
-```js
-// specs/MyFeatureSpec.js
-
-export default function(spec) {
-  spec.describe('My feature', function() {
-    spec.it('works', async function() {
-      await spec.press('Scene.button');
-      await spec.exists('NextScene');
-    });
-  }, 'focus');
-}
-```
-
-Note: if you tag a whole `spec.describe` function, Cavy will ignore any tags
-applied to individual tests it contains. The `spec.describe` tag takes
-precedent and is applied to all individual tests within that block.
+You can include multiple tags in the `only` array and Cavy will only run those
+tests tagged with any of the included tags.
