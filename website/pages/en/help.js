@@ -22,9 +22,9 @@ function Help(props) {
   const supportLinks = [
     {
       content: `Learn more using the documentation on this site:
-  * [Getting Started](./getting-started/installing)
-  * [Guides](./guides/writing-spec-helpers)
-  * [API reference](./api/commands)
+  * [Getting Started](/docs/getting-started/installing)
+  * [Guides](/docs/guides/writing-spec-helpers)
+  * [API reference](/docs/api/commands)
   * [Blog posts and videos](./media)`,
       title: 'Browse Docs',
     },

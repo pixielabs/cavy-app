@@ -55,9 +55,9 @@ cavy run-ios -f index.ios.js
 ```
 
 Set a custom entry point and specify a device (see [React Native: Running On
-Simulator](https://facebook.github.io/react-native/docs/running-on-simulator-ios)):
+Simulator](https://reactnative.dev/docs/running-on-simulator-ios)):
 ```bash
-cavy run-ios -f index.ios.js --simulator="iPhone 4s"
+cavy run-ios -f index.ios.js --simulator="iPhone 8"
 ```
 
 Run Cavy tests in dev mode having built and started your app manually:
