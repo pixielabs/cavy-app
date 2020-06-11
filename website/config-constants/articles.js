@@ -36,8 +36,7 @@ function articles(baseUrl) {
         "How we at Magnetis Backstage are writing e2e tests for our mobile application.",
       title: "React Native e2e testing with Cavy",
       author: 'Luiz Parreira',
-      image:
-        "https://pbs.twimg.com/profile_images/1145728962519281665/gzDjbw94_400x400.png",
+      image: baseUrl + "img/cavy.png",
       link:
         "https://medium.com/magnetis-backstage/react-native-e2e-testing-with-cavy-1f1d5be1d3be",
       date: "Mar 28, 2018"
