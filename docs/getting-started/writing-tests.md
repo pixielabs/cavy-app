@@ -38,7 +38,7 @@ See the [Test Helper API reference](../api/test-helpers) for a comprehensive
 list of functions available.
 
 Can't find something you need? Write your own test helper function! See
-[Guides - Writing your own spec helpers](/guides/writing-spec-helpers) for
+[Guides - Writing your own spec helpers](/docs/guides/writing-spec-helpers) for
 an example of writing your own assertions.
 
 ## Test execution

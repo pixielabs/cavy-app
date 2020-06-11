@@ -105,7 +105,7 @@ This is useful for when you can't use one of Cavy's other helper functions to
 interact with your component. Find it using `.findComponent` and call one of
 the props yourself, or write your own assertion!
 
-See [Guides - Writing your own spec helpers](/guides/writing-spec-helpers) for
+See [Guides - Writing your own spec helpers](/docs/guides/writing-spec-helpers) for
 an example of writing your own assertion.
 
 * `identifier`: (`String`) Identifier for the component.
@@ -215,7 +215,7 @@ Returns `true` if the component contains the string as a child.
 
 If your component is a React Native `<Text>` component, then you'll need to
 `wrap` it first to make it testable. See
-[the documentation for `wrap`](/api/test-hooks#2-native-components-like-text)
+[the documentation for `wrap`](/docs/api/test-hooks#2-native-components-like-text)
 for an example.
 
 * `identifier`: (`String`) Identifier for the component.
