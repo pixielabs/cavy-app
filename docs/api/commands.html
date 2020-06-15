@@ -84,17 +84,19 @@ spec files. Defaults to <code>specs</code>.</li>
 </code></pre>
 <p>Run tests on iOS.</p>
 <p><code>options</code>:</p>
-<ul>
-<li><code>-f, --file &lt;file&gt;</code>: Specify the app entry point. By default, Cavy
-looks for an <code>index.js</code>.</li>
-<li><code>-s, --skipbuild</code>: Start the test server and listen for results without first
-building the app. Assumes your app is already running.</li>
-<li><code>-d, --dev</code>: Start the test server and keep it running until manually killed.
-For use with hot-reloading.</li>
-<li><code>--xml</code>: Write the test results to <code>cavy_results.xml</code>, conforming to JUnit XML
-specification. (This option requires Cavy &gt;=3.3.0)</li>
-</ul>
-<p><code>rn-options:</code></p>
+<table>
+<thead>
+<tr><th>Option (long)</th><th>Option (short)</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>--boot-timeout &lt;minutes&gt;</code></td><td><code>-t</code></td><td>Set how long to wait for the app to boot (is ignored if used with <code>--skipbuild</code>, defaults to 2 minutes, requires Cavy 4.0.0)</td></tr>
+<tr><td><code>--dev</code></td><td><code>-d</code></td><td>Start the test server and keep it running until manually killed. For use with hot-reloading.</td></tr>
+<tr><td><code>--file &lt;file&gt;</code></td><td><code>-f</code></td><td>Specify the app entry point. By default, Cavy looks for an <code>index.js</code>.</td></tr>
+<tr><td><code>--skipbuild</code></td><td><code>-s</code></td><td>Start the test server and listen for results without first building the app. Assumes your app is already running.</td></tr>
+<tr><td><code>--xml</code></td><td></td><td>Write the test results to <code>cavy_results.xml</code>, conforming to JUnit XML specification. (This option requires Cavy &gt;=3.3.0)</td></tr>
+</tbody>
+</table>
+<p><code>rn-options</code>:</p>
 <ul>
 <li>Any <a href="https://www.npmjs.com/package/react-native-cli">react-native-cli</a> options that are valid for <code>react-native run-ios</code>.</li>
 </ul>
