@@ -34,16 +34,16 @@ cavy run-ios [options] [rn-options]
 Run tests on iOS.
 
 `options`:
-* `-f, --file <file>`: Specify the app entry point. By default, Cavy
-looks for an `index.js`.
-* `-s, --skipbuild`: Start the test server and listen for results without first
-building the app. Assumes your app is already running.
-* `-d, --dev`: Start the test server and keep it running until manually killed.
-For use with hot-reloading.
-* `--xml`: Write the test results to `cavy_results.xml`, conforming to JUnit XML
-specification. (This option requires Cavy >=3.3.0)
 
-`rn-options:`
+| Option (long)              | Option (short) | Description     |
+|----------------------------|----------------|-----------------|
+| `--boot-timeout <minutes>` | `-t`           | Set how long to wait for the app to boot (is ignored if used with `--skipbuild`, defaults to 2 minutes, requires Cavy 4.0.0) |
+| `--dev`                    | `-d`           | Start the test server and keep it running until manually killed. For use with hot-reloading. |
+| `--file <file>`            | `-f`           | Specify the app entry point. By default, Cavy looks for an `index.js`. |
+| `--skipbuild`              | `-s`           | Start the test server and listen for results without first building the app. Assumes your app is already running. |
+| `--xml`                    |                | Write the test results to `cavy_results.xml`, conforming to JUnit XML specification. (This option requires Cavy >=3.3.0) |
+
+`rn-options`:
 * Any [react-native-cli](https://www.npmjs.com/package/react-native-cli) options that are valid for `react-native run-ios`.
 
 #### Examples
