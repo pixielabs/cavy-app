@@ -83,3 +83,16 @@ cavy run-android [options] [rn-options]
 Run tests on Android.
 
 Options are the same as for `cavy run-ios`.
+
+---
+
+### Exit codes
+
+cavy-cli will exit with one the following codes:
+
+| Code  | Reason                                                                                                          |
+|-------|-----------------------------------------------------------------------------------------------------------------|
+| 0     | Your app built successfully and all your tests passed                                                           |
+| 1     | Your app failed to build and no tests were run                                                                  |
+| 42    | Your app built successfully but one or more of your tests failed                                                |
+| other | If react-native-cli exits with any other code during the app build phase, cavy-cli will exit with the same code |

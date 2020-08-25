@@ -63,7 +63,8 @@ cavy run-android
 
 This will boot your app, run the tests and output the results to the console.
 
-For a full list of cavy-cli options, see the [API reference](../api/commands).
+For a full list of cavy-cli options, and exit codes, see the
+[API reference](../api/commands).
 
 #### Note on running tests via cavy-cli
 
