@@ -29,7 +29,8 @@ There are two ways of getting access to `generateTestHook`:
 
 For testing function components that cannot be assigned a ref directly, you can
 use Cavy's [`wrap` function](#wrap-function) to create testable versions of
-these components. You will also need to `wrap` native components like `Text`.
+these components. You will also need to `wrap` native components like `Text`,
+`TextInput`, `TouchableOpacity`, `TouchableHighlight` and `Pressable`.
 
 ### `useCavy()` React Hook
 
@@ -38,19 +39,17 @@ obtain the `generateTestHook` function and assign a ref to the component you
 want to test:
 
 ```js
-import { View, TextInput } from 'react-native';
+import { Button } from 'react-native';
 import { useCavy } from 'cavy';
 
 export default () => {
   const generateTestHook = useCavy();
 
   return (
-    <View>
-      <TextInput
-        ref={generateTestHook('Scene.TextInput')}
-        onChangeText={...}
-      />
-    </View>   
+    <Button
+      ref={generateTestHook('Scene.Button')}
+      onPress={...}
+    />
   )
 };
 ```
@@ -63,18 +62,16 @@ hooked version of your parent component:
 
 ```js
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { Button } from 'react-native';
 import { hook } from 'cavy';
 
 class Scene extends React.Component {
   render() {
     return (
-      <View>
-        <TextInput
-          ref={this.props.generateTestHook('Scene.TextInput')}
-          onChangeText={...}
-        />
-      </View>      
+      <Button
+        ref={this.props.generateTestHook('Scene.Button')}
+        onPress={...}
+      />
     );
   }
 }
@@ -110,11 +107,10 @@ export default () => {
 };
 ```
 
-#### 2. Testing native components like `<Text>`
+#### 2. Testing native components like `<Text>`, `<TextInput>`, `<Pressable>`, `<TouchableOpacity>` and `<TouchableHighlight>`
 
-If you want to test a `<Text>` component using the `containsText` helper method,
-or by accessing it's props directly, **you must wrap the Text component
-itself**:
+If you want to test any of these components using Cavy helper functions, or by
+accessing their props directly yourself, **you must wrap them first**:
 
 ```js
 import { Text } from 'react-native';
@@ -132,10 +128,11 @@ export default () => {
 };
 ```
 
-If you assign a ref directly to `<Text>`, the component returned does not expose
-the props and you will not be able to test the children it renders.
+If you assign a ref directly to these specific components, the component
+returned does not expose the props. Therefore, Cavy will not be able to peform
+actions on them in your tests.
 
-**Note:** If you only want to test the presence of a `<Text>` component, you do
+**Note:** If you only want to test the presence of a these components, you do
 not need to wrap it before assigning it a ref.
 
 #### See also

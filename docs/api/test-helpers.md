@@ -73,11 +73,16 @@ export default function(spec) {
 ## Actions
 
 ### `.fillIn(identifier, str)`
-Fills in the identified component with the string provided. Component must respond
-to `onChangeText`.
+Fills in the identified component with the string provided. Component must
+respond to `onChangeText`.
 
 * `identifier`: (`String`) Identifier for the component.
 * `str`: (`String`) String to fill in.
+
+If your component is a React Native `<TextInput>` component, then you'll need to
+`wrap` it first to make it testable. See
+[the documentation for `wrap`](/docs/api/test-hooks#2-native-components-like-text)
+for an example.
 
 #### Example
 
@@ -176,6 +181,11 @@ Presses the identified component. Component must respond to `onPress`.
 
 * `identifier`: (`String`) Identifier for the component.
 
+If your component is a React Native `<TouchableOpacity>`, `<TouchableHighlight>`
+or `<Pressable>` component, then you'll need to `wrap` it first to make it
+testable. See [the documentation for `wrap`](/docs/api/test-hooks#2-native-components-like-text)
+for an example.
+
 #### Example
 
 ```js
@@ -213,13 +223,13 @@ export default function(spec) {
 ### `.containsText(identifier, str)`
 Returns `true` if the component contains the string as a child.
 
+* `identifier`: (`String`) Identifier for the component.
+* `str`: (`String`) String is should contain.
+
 If your component is a React Native `<Text>` component, then you'll need to
 `wrap` it first to make it testable. See
 [the documentation for `wrap`](/docs/api/test-hooks#2-native-components-like-text)
 for an example.
-
-* `identifier`: (`String`) Identifier for the component.
-* `str`: (`String`) String is should contain.
 
 #### Example
 

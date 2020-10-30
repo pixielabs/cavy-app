@@ -51,6 +51,7 @@ An alternative to `useCavy()`.
 
 ```js
 import React from 'react';
+import { Button } from 'react-native';
 import { hook } from 'cavy';
 
 class Scene extends React.Component {
@@ -58,9 +59,6 @@ class Scene extends React.Component {
     const { generateTestHook } = this.props;
 
     return (
-      <TextInput
-        ref={generateTestHook('Scene.TextInput', (c) => this.textInput = c)}
-      />
       <Button
         ref={generateTestHook('Scene.Button')}
         title='Press me!'
