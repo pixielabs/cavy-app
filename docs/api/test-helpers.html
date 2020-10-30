@@ -118,12 +118,16 @@ use <code>beforeEach</code> to manipulate state before the app is re-rendered.</
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="actions"></a><a href="#actions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Actions</h2>
 <h3><a class="anchor" aria-hidden="true" id="fillinidentifier-str"></a><a href="#fillinidentifier-str" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>.fillIn(identifier, str)</code></h3>
-<p>Fills in the identified component with the string provided. Component must respond
-to <code>onChangeText</code>.</p>
+<p>Fills in the identified component with the string provided. Component must
+respond to <code>onChangeText</code>.</p>
 <ul>
 <li><code>identifier</code>: (<code>String</code>) Identifier for the component.</li>
 <li><code>str</code>: (<code>String</code>) String to fill in.</li>
 </ul>
+<p>If your component is a React Native <code>&lt;TextInput&gt;</code> component, then you'll need to
+<code>wrap</code> it first to make it testable. See
+<a href="/docs/api/test-hooks#2-native-components-like-text">the documentation for <code>wrap</code></a>
+for an example.</p>
 <h4><a class="anchor" aria-hidden="true" id="example-3"></a><a href="#example-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
 <pre><code class="hljs css language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">spec</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   spec<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'A list of employees'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -200,6 +204,10 @@ to allow time for a response to be received before progressing.</p>
 <ul>
 <li><code>identifier</code>: (<code>String</code>) Identifier for the component.</li>
 </ul>
+<p>If your component is a React Native <code>&lt;TouchableOpacity&gt;</code>, <code>&lt;TouchableHighlight&gt;</code>
+or <code>&lt;Pressable&gt;</code> component, then you'll need to <code>wrap</code> it first to make it
+testable. See <a href="/docs/api/test-hooks#2-native-components-like-text">the documentation for <code>wrap</code></a>
+for an example.</p>
 <h4><a class="anchor" aria-hidden="true" id="example-7"></a><a href="#example-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
 <pre><code class="hljs css language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">spec</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   spec<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Pressing the "Gallery" button'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -229,14 +237,14 @@ to allow time for a response to be received before progressing.</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="containstextidentifier-str"></a><a href="#containstextidentifier-str" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>.containsText(identifier, str)</code></h3>
 <p>Returns <code>true</code> if the component contains the string as a child.</p>
-<p>If your component is a React Native <code>&lt;Text&gt;</code> component, then you'll need to
-<code>wrap</code> it first to make it testable. See
-<a href="/docs/api/test-hooks#2-native-components-like-text">the documentation for <code>wrap</code></a>
-for an example.</p>
 <ul>
 <li><code>identifier</code>: (<code>String</code>) Identifier for the component.</li>
 <li><code>str</code>: (<code>String</code>) String is should contain.</li>
 </ul>
+<p>If your component is a React Native <code>&lt;Text&gt;</code> component, then you'll need to
+<code>wrap</code> it first to make it testable. See
+<a href="/docs/api/test-hooks#2-native-components-like-text">the documentation for <code>wrap</code></a>
+for an example.</p>
 <h4><a class="anchor" aria-hidden="true" id="example-9"></a><a href="#example-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
 <pre><code class="hljs css language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">spec</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   spec<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Selecting an employee'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>

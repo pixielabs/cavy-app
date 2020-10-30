@@ -82,24 +82,23 @@ readable!</p>
 </ul>
 <p>For testing function components that cannot be assigned a ref directly, you can
 use Cavy's <a href="#wrap-function"><code>wrap</code> function</a> to create testable versions of
-these components. You will also need to <code>wrap</code> native components like <code>Text</code>.</p>
+these components. You will also need to <code>wrap</code> native components like <code>Text</code>,
+<code>TextInput</code>, <code>TouchableOpacity</code>, <code>TouchableHighlight</code> and <code>Pressable</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="usecavy-react-hook"></a><a href="#usecavy-react-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>useCavy()</code> React Hook</h3>
 <p>If you're using React Hooks, you can call the custom <code>useCavy()</code> React Hook to
 obtain the <code>generateTestHook</code> function and assign a ref to the component you
 want to test:</p>
-<pre><code class="hljs css language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> View<span class="token punctuation">,</span> TextInput <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
+<pre><code class="hljs css language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> useCavy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> generateTestHook <span class="token operator">=</span> <span class="token function">useCavy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TextInput</span></span>
-        <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.TextInput'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-        <span class="token attr-name">onChangeText</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></span>
-      <span class="token punctuation">/></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>   
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span></span>
+      <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.Button'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+      <span class="token attr-name">onPress</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></span>
+    <span class="token punctuation">/></span></span>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -108,18 +107,16 @@ want to test:</p>
 in props. As assign a red to the component you want to test and then export a
 hooked version of your parent component:</p>
 <pre><code class="hljs css language-js"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> View<span class="token punctuation">,</span> TextInput <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> hook <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Scene</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
   <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TextInput</span></span>
-          <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.TextInput'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-          <span class="token attr-name">onChangeText</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></span>
-        <span class="token punctuation">/></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">View</span></span><span class="token punctuation">></span></span>      
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Button</span></span>
+        <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">generateTestHook</span><span class="token punctuation">(</span><span class="token string">'Scene.Button'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">onPress</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span></span>
+      <span class="token punctuation">/></span></span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -148,10 +145,9 @@ version of it using the <code>wrap</code> function, then assign it a ref as norm
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h4><a class="anchor" aria-hidden="true" id="2-testing-native-components-like-text"></a><a href="#2-testing-native-components-like-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Testing native components like <code>&lt;Text&gt;</code></h4>
-<p>If you want to test a <code>&lt;Text&gt;</code> component using the <code>containsText</code> helper method,
-or by accessing it's props directly, <strong>you must wrap the Text component
-itself</strong>:</p>
+<h4><a class="anchor" aria-hidden="true" id="2-testing-native-components-like-text-textinput-pressable-touchableopacity-and-touchablehighlight"></a><a href="#2-testing-native-components-like-text-textinput-pressable-touchableopacity-and-touchablehighlight" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Testing native components like <code>&lt;Text&gt;</code>, <code>&lt;TextInput&gt;</code>, <code>&lt;Pressable&gt;</code>, <code>&lt;TouchableOpacity&gt;</code> and <code>&lt;TouchableHighlight&gt;</code></h4>
+<p>If you want to test any of these components using Cavy helper functions, or by
+accessing their props directly yourself, <strong>you must wrap them first</strong>:</p>
 <pre><code class="hljs css language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Text <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-native'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> useCavy<span class="token punctuation">,</span> wrap <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'cavy'</span><span class="token punctuation">;</span>
 
@@ -166,9 +162,10 @@ itself</strong>:</p>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>If you assign a ref directly to <code>&lt;Text&gt;</code>, the component returned does not expose
-the props and you will not be able to test the children it renders.</p>
-<p><strong>Note:</strong> If you only want to test the presence of a <code>&lt;Text&gt;</code> component, you do
+<p>If you assign a ref directly to these specific components, the component
+returned does not expose the props. Therefore, Cavy will not be able to peform
+actions on them in your tests.</p>
+<p><strong>Note:</strong> If you only want to test the presence of a these components, you do
 not need to wrap it before assigning it a ref.</p>
 <h4><a class="anchor" aria-hidden="true" id="see-also"></a><a href="#see-also" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also</h4>
 <ul>
