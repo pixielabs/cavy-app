@@ -53,10 +53,6 @@ h2 {
   color: #fff;
 }
 
-.darkBackground a:not(.button) {
-  color: var(--orange);
-}
-
 .lightBackground {
   background: var(--light-grey);
 }
@@ -250,6 +246,12 @@ h2 {
   margin-top: 3px;
 }
 
+/* Footer */
+
+.nav-footer .sitemap .footerMore {
+  flex: 2;
+}
+
 @media only screen and (max-device-width: 736px) {
   .article-image-container {
     display: none;
@@ -302,3 +304,4 @@ h2 {
 
 @media only screen and (min-width: 1500px) {
 }
+

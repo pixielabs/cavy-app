@@ -162,15 +162,6 @@ function Index({ config: siteConfig, language = "" }) {
     </Container>
   );
 
-  const BuiltBy = () => (
-    <div className="built-by text-center paddingBottom paddingTop highlightBackground">
-      <h2>Built and maintained by </h2>
-      <a href="https://pixielabs.io">
-        <img src={`${baseUrl}img/pixielabs-logo-white.svg`} alt="Pixie Labs" />
-      </a>
-    </div>
-  );
-
   const Features = () => (
     <Block
       layout="threeColumn"
@@ -208,7 +199,6 @@ function Index({ config: siteConfig, language = "" }) {
         <Description />
         <CI />
         <Talks />
-        <BuiltBy />
       </div>
     </div>
   );

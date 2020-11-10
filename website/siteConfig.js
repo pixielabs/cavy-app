@@ -13,6 +13,7 @@ const baseUrl = '/';
 
 const siteConfig = {
   title: "Cavy",
+  tagline: "Start end-to-end testing your React Native application across iOS and Android in 5 minutes",
   url: "https://cavy.app",
   cname: "cavy.app",
   baseUrl: baseUrl,
@@ -37,7 +38,7 @@ const siteConfig = {
 
   /* path to images for header/footer */
   headerIcon: "img/cavy.png",
-  footerIcon: "img/favicon.ico",
+  footerIcon: "img/cavy.png",
   favicon: "img/favicon.ico",
 
   /* Colors for website */
