@@ -10,6 +10,17 @@ const CompLibrary = require("../../core/CompLibrary.js");
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
+const Button = ({ className, href, target, children }) => (
+  <div className="pluginWrapper buttonWrapper">
+    <a
+      className={className ? `button ${className}` : 'button'}
+      href={href}
+      target={target}>
+      {children}
+    </a>
+  </div>
+);
+
 function HomeSplash({ siteConfig, language = "" }) {
   const { baseUrl, docsUrl } = siteConfig;
   const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
@@ -20,17 +31,6 @@ function HomeSplash({ siteConfig, language = "" }) {
     <a className="badge" href={href}>
       <img src={src} alt={alt} height="18" />
     </a>
-  );
-
-  const Button = ({ className, href, target, children }) => (
-    <div className="pluginWrapper buttonWrapper">
-      <a
-        className={className ? `button ${className}` : 'button'}
-        href={href}
-        target={target}>
-        {children}
-      </a>
-    </div>
   );
 
   return (
@@ -118,31 +118,48 @@ function Index({ config: siteConfig, language = "" }) {
   );
 
   const CI = () => (
-    <Block>
-      {[
-        {
-          content:
-            "Cavy comes with a simple command-line interface so you can easily run your tests in your CI environment. [Check out the sample app's CircleCI config](https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml).",
-          image: `${baseUrl}img/undraw_mobile_testing.svg`,
-          imageAlign: "left",
-          title: "Add Cavy to your Continuous Integration toolchain"
-        }
-      ]}
-    </Block>
+    <Container padding={["bottom", "top"]}>
+      <div className='block'>
+        <div className='blockElement'>
+          <img src={`${baseUrl}img/undraw_mobile_testing.svg`} alt="CI" />
+        </div>
+        <div className='blockElement'>
+          <h2>Add Cavy to your Continuous Integration toolchain</h2>
+          <p>
+            Cavy comes with a simple command-line interface so you can easily
+            run your tests in your CI environment.
+          </p>
+          <Button
+            className='orangeButton'
+            href="https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml">
+            View sample
+          </Button>
+        </div>
+      </div>
+    </Container>
   );
 
   const Talks = () => (
-    <Block background="dark">
-      {[
-        {
-          content:
-            "The team behind Cavy regularly publish blog posts about the latest Cavy features and have spoken at the Red Badger and JS roundabout meetups. <br/><br/>[Read more about Cavy](media)",
-          image: `${baseUrl}img/undraw_knowledge.svg`,
-          imageAlign: "right",
-          title: "Blog posts and talks"
-        }
-      ]}
-    </Block>
+    <Container className='lightBackground' padding={["bottom", "top"]}>
+      <div className='block'>
+        <div className='blockElement'>
+          <h2>Blog posts and talks</h2>
+          <p>
+            The team behind Cavy regularly publish blog posts about the latest
+            Cavy features and have spoken at the Red Badger and JS roundabout
+            meetups.
+          </p>
+          <Button
+            className='orangeButton'
+            href="https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml">
+            Read more
+          </Button>
+        </div>
+        <div className='blockElement'>
+          <img src={`${baseUrl}img/undraw_knowledge.svg`} alt="Blogs" />
+        </div>
+      </div>
+    </Container>
   );
 
   const BuiltBy = () => (

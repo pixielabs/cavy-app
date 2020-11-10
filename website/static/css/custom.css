@@ -1,5 +1,6 @@
 :root {
   --dark-grey: #404952;
+  --text-grey: #848b92;
   --mid-grey: #636a70;
   --light-grey: #f0f5f7;
   --orange: #edb53b;
@@ -103,6 +104,17 @@ h2 {
   font-size: 18px;
 }
 
+.orangeButton {
+  color: white;
+  padding: 10px 32px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: var(--orange);
+  border-color: var(--orange);
+  border-radius: 0;
+  text-transform: none;
+}
+
 .homeContainer .button:hover {
   border-color: var(--orange);
   color: var(--orange);
@@ -123,6 +135,20 @@ h2 {
 
 .promoSection .promoRow .pluginRowBlock {
   justify-content: flex-start;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+}
+
+.block .blockElement {
+  padding: 0 30px;
+}
+
+.block p {
+  color: var(--text-grey);
+  font-size: 18px;
 }
 
 /* Flex the key features on the landing page so that the text aligns. */
