@@ -37,14 +37,14 @@ const siteConfig = {
   articles: require("./config-constants/articles")(baseUrl),
 
   /* path to images for header/footer */
-  headerIcon: "img/favicon.ico",
+  headerIcon: "img/cavy.png",
   footerIcon: "img/favicon.ico",
   favicon: "img/favicon.ico",
 
   /* Colors for website */
   colors: {
-    primaryColor: "#171738",
-    secondaryColor: "#4E598C"
+    primaryColor: "#404952",
+    secondaryColor: "#404952"
   },
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.

@@ -1,21 +1,32 @@
+:root {
+  --dark-grey: #404952;
+  --mid-grey: #848b92;
+  --light-grey: #f0f5f7;
+  --orange: #edb53b;
+}
+
 /* General styles */
 small {
   font-size: 0.85rem;
 }
+
+h2 {
+  font-size: 32px;
+} 
 
 .button {
   transition: background 0.3s, color 0.3s, border 0.3s;
 }
 
 .button:hover {
-  border-color: #ff8500;
-  color: #ff8500;
+  border-color: var(--orange);
+  color: var(--orange);
   background: none;
 }
 
 .homeMainContainer a:not(.button),
 .docMainWrapper .mainContainer a:not(.button) {
-  color: #ff8500;
+  color: var(--orange);
 }
 
 .paddingBottom {
@@ -31,41 +42,43 @@ small {
   text-align: center;
 }
 
-.nav-footer {
-  background-color: #171738;
-}
-
 .highlightBackground {
-  background: #4e598c;
-  color: #fff;
+  background: white;
+  color: black;
 }
 
 .darkBackground {
-  background: #171738;
+  background: var(--dark-grey);
   color: #fff;
 }
 
 .darkBackground a:not(.button) {
-  color: #ffb15c;
+  color: var(--orange);
+}
+
+.lightBackground {
+  background: var(--light-grey);
+}
+
+/* Header */
+
+.fixedHeaderContainer {
+  padding: 20px 0;
+}
+
+.fixedHeaderContainer header .headerTitleWithLogo {
+  font-size: 40px;
 }
 
 /* Homepage splash */
-.homeContainer {
-  background-color: #171738;
-}
-
 .project-logo {
   display: none;
 }
 
 .homeContainer .projectTitle {
   color: #fff;
-}
-
-.homeContainer .projectTitle small {
-  line-height: 1.5;
-  font-size: 60%;
-  margin: 0.7em 0.5em 1.3em;
+  font-weight: lighter;
+  margin-right: 24px;
 }
 
 .homeContainer .button {
@@ -74,8 +87,8 @@ small {
 }
 
 .homeContainer .button:hover {
-  border-color: #ffb15c;
-  color: #ffb15c;
+  border-color: var(--orange);
+  color: var(--orange);
 }
 
 .homeContainer .badge {
@@ -125,7 +138,7 @@ small {
 
 .contributors a:hover,
 .article a:hover {
-  color: #ffb15c;
+  color: var(--orange);
 }
 
 .article h3, .article p {
@@ -199,9 +212,8 @@ small {
   .homeContainer .homeWrapper .inner {
     align-items: center;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 2em 0;
-    margin: 0 auto;
     max-width: 950px;
   }
 
