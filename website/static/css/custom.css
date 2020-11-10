@@ -1,6 +1,6 @@
 :root {
   --dark-grey: #404952;
-  --mid-grey: #848b92;
+  --mid-grey: #636a70;
   --light-grey: #f0f5f7;
   --orange: #edb53b;
 }
@@ -78,12 +78,29 @@ h2 {
 .homeContainer .projectTitle {
   color: #fff;
   font-weight: lighter;
+  margin-top: 36px;
   margin-right: 24px;
 }
 
+.homeContainer .projectTitle span {
+  font-weight: 500;
+}
+
 .homeContainer .button {
-  border-color: #fff;
   color: #fff;
+  padding: 10px 24px;
+  margin-right: 20px;
+  border-color: var(--mid-grey);
+  border-radius: 0;
+  text-transform: none;
+}
+
+.homeContainer .splashButton {
+  padding: 18px 60px;
+  margin-bottom: 40px;
+  background-color: var(--orange);
+  border-color: var(--orange);
+  font-size: 18px;
 }
 
 .homeContainer .button:hover {
@@ -97,6 +114,15 @@ h2 {
 
 .homeSplashFade {
   padding-bottom: 40px;
+}
+
+.buttonSection {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.promoSection .promoRow .pluginRowBlock {
+  justify-content: flex-start;
 }
 
 /* Flex the key features on the landing page so that the text aligns. */
@@ -214,21 +240,15 @@ h2 {
     display: flex;
     justify-content: space-between;
     padding: 2em 0;
-    max-width: 950px;
   }
 
   .homeContainer .homeWrapper .project-logo {
     display: block;
+    width: 800px;
   }
 
   .homeContainer .projectTitle {
     text-align: left;
-  }
-
-  .homeContainer .projectTitle small {
-    margin-left: 0;
-    margin-right: 2rem;
-    margin-bottom: 0;
   }
 }
 

@@ -16,92 +16,90 @@ function HomeSplash({ siteConfig, language = "" }) {
   const langPart = `${language ? `${language}/` : ""}`;
   const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-  const SplashContainer = props => (
-    <div className="homeContainer darkBackground">
-      <div className="homeSplashFade">
-        <div className="wrapper homeWrapper">{props.children}</div>
-        <a
-          className="badge"
-          href="https://badge.fury.io/js/cavy">
-          <img
-            src="https://badge.fury.io/js/cavy.svg"
-            alt="npm version"
-            height="18"
-          />
-        </a>
-        <a
-          className="badge"
-          href="https://circleci.com/gh/pixielabs/cavy/tree/master.svg?style=svg">
-          <img
-            src="https://circleci.com/gh/pixielabs/cavy/tree/master.svg?style=svg"
-            alt="Continuous Integration Badge"
-            height="18"
-          />
-        </a>
-        <a
-          className="badge"
-          href="https://discord.gg/4NMFMmz">
-          <img
-            src="https://discordapp.com/api/guilds/604246649845448735/widget.png?style=shield"
-            alt="Discord badge"
-            height="18"
-          />
-        </a>
-      </div>
-    </div>
+  const Badge = ({ href, src, alt }) => (
+    <a className="badge" href={href}>
+      <img src={src} alt={alt} height="18" />
+    </a>
   );
 
-  const Button = props => (
+  const Button = ({ className, href, target, children }) => (
     <div className="pluginWrapper buttonWrapper">
-      <a className="button" href={props.href} target={props.target}>
-        {props.children}
+      <a
+        className={className ? `button ${className}` : 'button'}
+        href={href}
+        target={target}>
+        {children}
       </a>
     </div>
   );
 
   return (
-    <SplashContainer>
-      <div className="inner">
-        <h2 className="projectTitle">{siteConfig.tagline}</h2>
-        <div className="project-logo">
-          <img src={`${baseUrl}img/cavy.png`} alt="Cavy Logo" />
-        </div>
-      </div>
+    <div className="homeContainer darkBackground">
+      <div className="homeSplashFade">
+        <div className="wrapper homeWrapper">
+          <div className="inner">
+            <div>
+              <h2 className="projectTitle">
+                Start end-to-end testing your React Native application
+                <span> across iOS and Android in 5 minutes</span>
+              </h2>
 
-      <div className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">
-          <Button href={docUrl("getting-started/installing")}>
-            Get Started
-          </Button>
-          <Button href="https://github.com/pixielabs/cavy/tree/master/sample-app/CavyDirectory">
-            Browse Sample App
-          </Button>
-          <Button href="https://discord.gg/4NMFMmz">
-            Join the Discord
-          </Button>
+              <div className="buttonSection">
+                <Button className="splashButton" href={docUrl("getting-started/installing")}>
+                  Get Started
+                </Button>
+              </div>
+
+              <div className="buttonSection promoSection">
+                <div className="promoRow">
+                  <div className="pluginRowBlock">
+                    <Button href="https://github.com/pixielabs/cavy/tree/master/sample-app/CavyDirectory">
+                      Browse Sample App
+                    </Button>
+                    <Button href="https://discord.gg/4NMFMmz">
+                      Join the Discord
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="buttonSection">
+                <Badge
+                  href="https://badge.fury.io/js/cavy"
+                  src="https://badge.fury.io/js/cavy.svg"
+                  alt="npm version"/>
+                <Badge
+                  href="https://circleci.com/gh/pixielabs/cavy/tree/master.svg?style=svg"
+                  src="https://circleci.com/gh/pixielabs/cavy/tree/master.svg?style=svg"
+                  alt="Continuous Integration Badge"/>
+                <Badge
+                  href="https://discord.gg/4NMFMmz"
+                  src="https://discordapp.com/api/guilds/604246649845448735/widget.png?style=shield"
+                  alt="Discord badge"/>
+              </div>
+            </div>
+
+            <div className="project-logo">
+              <img src={`${baseUrl}img/cavy.png`} alt="Cavy Logo" />
+            </div>
           </div>
         </div>
       </div>
-    </SplashContainer>
+    </div>
   ); 
 }
 
 function Index({ config: siteConfig, language = "" }) {
   const { baseUrl } = siteConfig;
 
-  const Block = props => (
+  const Block = ({ id, background, className, align, children, layout }) => (
     <Container
       padding={["bottom", "top"]}
-      id={props.id}
-      background={props.background}
-      className={props.className}
+      id={id}
+      background={background}
+      className={className}
     >
-      <GridBlock
-        align={props.align}
-        contents={props.children}
-        layout={props.layout}
-      />
+      <GridBlock align={align} contents={children} layout={layout} />
     </Container>
   );
 
