@@ -8,6 +8,10 @@ const PixieLabs = ({ baseUrl }) => (
         <div className='pixieBackground'>
           <img src={`${baseUrl}img/Office.jpg`} />
         </div>
+        <div className='square squareSmall squareLeftRed'></div>
+        <div className='square squareLarge squareLeftGreen'></div>
+        <div className='square squareLarge squareRightRed'></div>
+        <div className='square squareSmall squareRightGreen'></div>
         <div className='pixieBlock'>
           <img src={`${baseUrl}img/pixielabs-logo-white.svg`} />
           <h2 className='pixieLabsTitle'>

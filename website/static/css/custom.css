@@ -198,6 +198,44 @@ h2 {
   font-weight: 500;
 }
 
+.square {
+  position: absolute;
+}
+
+.squareSmall {
+  height: 32px;
+  width: 32px;
+}
+
+.squareLarge {
+  width: 72px;
+  height: 72px;
+}
+
+.squareLeftRed {
+  top: 148px;
+  left: 112px;
+  background-color: var(--red);
+}
+
+.squareLeftGreen {
+  top: 180px;
+  left: 40px;
+  background-color: var(--green);
+}
+
+.squareRightRed {
+  top: 80px;
+  right: 100px;
+  background-color: var(--red);
+}
+
+.squareRightGreen {
+  top: 180px;
+  right: 200px;
+  background-color: var(--green);
+}
+
 .whiteButton {
   color: black;
   padding: 14px 38px;
