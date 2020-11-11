@@ -102,10 +102,9 @@ function Footer({ config }) {
               <img src={baseUrl + footerIcon} alt={title} width="66"/>
             )}
           </a>
+          <section className="copyright">{copyright}</section>
         </div>
       </section>
-
-      <section className="copyright">{copyright}</section>
     </footer>
   );
 }
