@@ -71,6 +71,10 @@ h2 {
   font-weight: 500;
 }
 
+.downCheveron {
+  width: 96px;
+}
+
 .redUnderline {
   border-bottom: 4px solid var(--red);
 }

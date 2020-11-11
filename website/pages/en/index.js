@@ -67,11 +67,11 @@ function HomeSplash({ siteConfig, language = "" }) {
                   alt="Discord badge"/>
               </div>
             </div>
-
             <div className="project-logo">
               <img src={`${baseUrl}img/Screens.png`} alt="Cavy Logo" />
             </div>
           </div>
+          <img className='downCheveron' src={`${baseUrl}img/white-down-arrow.svg`} />
         </div>
       </div>
     </div>
