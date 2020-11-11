@@ -1,8 +1,9 @@
 :root {
-  --dark-grey: #404952;
-  --text-grey: #848b92;
+  --darker-grey: #272f36;
+  --dark-grey: #4a535c;
   --mid-grey: #636a70;
   --light-grey: #f0f5f7;
+  --text-grey: #848b92;
   --orange: #edb53b;
 }
 
@@ -13,7 +14,7 @@ small {
 
 h2 {
   font-size: 32px;
-} 
+}
 
 .button {
   transition: background 0.3s, color 0.3s, border 0.3s;
@@ -46,11 +47,6 @@ h2 {
 .highlightBackground {
   background: white;
   color: black;
-}
-
-.darkBackground {
-  background: var(--dark-grey);
-  color: #fff;
 }
 
 .lightBackground {
@@ -122,6 +118,8 @@ h2 {
 }
 
 .homeSplashFade {
+  background: rgb(39,47,54);
+  background: linear-gradient(90deg, var(--darker-grey), var(--dark-grey) 100%);
   padding-bottom: 40px;
 }
 
@@ -287,6 +285,10 @@ h2 {
 }
 
 /* Footer */
+
+.nav-footer {
+  background: var(--darker-grey);
+}
 
 .nav-footer .sitemap .footerMore {
   flex: 2;

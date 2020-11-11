@@ -22,7 +22,7 @@ function HomeSplash({ siteConfig, language = "" }) {
   const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
   return (
-    <div className="homeContainer darkBackground">
+    <div className="homeContainer">
       <div className="homeSplashFade">
         <div className="wrapper homeWrapper">
           <div className="inner">

@@ -21,7 +21,7 @@ function Footer({ config }) {
   }
 
   return (
-    <footer className="nav-footer darkBackground" id="footer">
+    <footer className="nav-footer" id="footer">
       <section className="sitemap">
         <div>
           <a href="https://pixielabs.io">
