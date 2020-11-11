@@ -25,7 +25,7 @@ function Footer({ config }) {
       <section className="sitemap">
         <div>
           <a href="https://pixielabs.io">
-            <img src={`${baseUrl}img/pixielabs-logo-white.svg`} alt="Pixie Labs" />
+            <img className='builtWithLove' src={`${baseUrl}img/Built-with-love.png`} alt="Pixie Labs" />
           </a>
         </div>
 

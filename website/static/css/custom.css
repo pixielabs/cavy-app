@@ -295,9 +295,13 @@ h2 {
 }
 
 .nav-footer .copyright {
-  color: white;
   text-align: left;
-  font-size: 12px;
+  font-size: 10px;
+}
+
+.builtWithLove {
+  max-width: 240px;
+  margin-right: 36px;
 }
 
 @media only screen and (max-device-width: 736px) {
