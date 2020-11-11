@@ -102,9 +102,10 @@ h2 {
 
 .orangeButton {
   color: white;
-  padding: 10px 32px;
+  padding: 14px 38px;
   margin-top: 20px;
   margin-right: 20px;
+  font-size: 16px;
   background-color: var(--orange);
   border-color: var(--orange);
   border-radius: 0;
@@ -149,6 +150,10 @@ h2 {
 .block p {
   color: var(--text-grey);
   font-size: 18px;
+}
+
+.imageAlignTop .blockImage {
+  margin-bottom: 0;
 }
 
 /* Flex the key features on the landing page so that the text aligns. */

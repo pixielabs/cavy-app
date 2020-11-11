@@ -112,19 +112,19 @@ function Index({ config: siteConfig, language = "" }) {
       <GridBlock align='center' layout='threeColumn' contents={[
         {
           content: "Quickly set up Cavy with just a few lines of code - it's all pure JavaScript.",
-          image: `${baseUrl}img/undraw_speed_test.svg`,
+          image: `${baseUrl}img/Quick-set-up.svg`,
           imageAlign: "top",
           title: "Quick set up"
         },
         {
           content: "Use the command-line interface to run Cavy tests in your CI environment.",
-          image: `${baseUrl}img/undraw_open_source.svg`,
+          image: `${baseUrl}img/CI-Compatible.svg`,
           imageAlign: "top",
           title: "Compatible with CI"
         },
         {
           content: "Designed to work with iOS and Android, no extra set up required.",
-          image: `${baseUrl}img/undraw_android.svg`,
+          image: `${baseUrl}img/Cross-platform.svg`,
           imageAlign: "top",
           title: "Cross-platform"
         }
