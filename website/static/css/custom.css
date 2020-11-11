@@ -51,10 +51,6 @@ h2 {
 }
 
 /* Header */
-.fixedHeaderContainer {
-  padding: 20px 0;
-}
-
 .fixedHeaderContainer header .headerTitleWithLogo {
   font-size: 40px;
 }
