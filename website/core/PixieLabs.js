@@ -20,6 +20,9 @@ const PixieLabs = ({ baseUrl }) => (
           </h2>
           <Button className="whiteButton" href="https://pixielabs.io">
             Let's have a chat
+            <span>
+              <img className='rightChevron' src={`${baseUrl}img/black-right-arrow.svg`} />
+            </span>
           </Button>
         </div>
       </div>

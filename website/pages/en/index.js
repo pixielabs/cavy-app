@@ -34,8 +34,11 @@ function HomeSplash({ siteConfig, language = "" }) {
               </h2>
 
               <div className="buttonSection">
-                <Button className="splashButton" href={docUrl("getting-started/installing")}>
+                <Button baseUrl={baseUrl} className="splashButton" href={docUrl("getting-started/installing")}>
                   Get Started
+                  <span>
+                    <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+                  </span>
                 </Button>
               </div>
 
@@ -44,9 +47,15 @@ function HomeSplash({ siteConfig, language = "" }) {
                   <div className="pluginRowBlock">
                     <Button href="https://github.com/pixielabs/cavy/tree/master/sample-app/CavyDirectory">
                       Browse Sample App
+                      <span>
+                        <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+                      </span>
                     </Button>
                     <Button href="https://discord.gg/4NMFMmz">
-                      Join the Discord
+                      Join the discord
+                      <span>
+                        <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+                      </span>
                     </Button>
                   </div>
                 </div>
@@ -110,6 +119,9 @@ function Index({ config: siteConfig, language = "" }) {
             <p>Cavy comes with a simple command-line interface so you can easily run your tests in your CI environment.</p>
             <Button className='orangeButton' href='https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml'>
               View sample
+              <span>
+                <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+              </span>
             </Button>
           </div>
         </div>
@@ -126,6 +138,9 @@ function Index({ config: siteConfig, language = "" }) {
             <p>The team behind Cavy regularly publish blog posts about the latest Cavy features and have spoken at the Red Badger and JS roundabout meetups.</p>
             <Button className='orangeButton' href={`${baseUrl}en/media`}>
               Read more
+              <span>
+                <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+              </span>
             </Button>
           </div>
           <div className='blockElement imageGroup'>

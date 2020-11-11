@@ -75,6 +75,12 @@ h2 {
   width: 96px;
 }
 
+.rightChevron {
+  height: 12px;
+  margin-left: 12px;
+  stroke: var(--green);
+}
+
 .redUnderline {
   border-bottom: 4px solid var(--red);
 }
