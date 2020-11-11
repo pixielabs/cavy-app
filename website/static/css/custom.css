@@ -124,7 +124,6 @@ h2 {
 .homeSplashFade {
   background-color: var(--darker-grey);
   background: linear-gradient(90deg, var(--darker-grey), var(--dark-grey) 100%);
-  padding-bottom: 40px;
 }
 
 .buttonSection {
@@ -423,15 +422,13 @@ h2 {
 
 @media only screen and (min-width: 1024px) {
   .homeContainer .homeWrapper .inner {
-    align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: 2em 0;
+    padding-top: 4em;
   }
 
   .homeContainer .homeWrapper .project-logo {
     display: block;
-    width: 800px;
   }
 
   .homeContainer .projectTitle {

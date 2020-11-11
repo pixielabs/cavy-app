@@ -69,7 +69,7 @@ function HomeSplash({ siteConfig, language = "" }) {
             </div>
 
             <div className="project-logo">
-              <img src={`${baseUrl}img/cavy.png`} alt="Cavy Logo" />
+              <img src={`${baseUrl}img/Screens.png`} alt="Cavy Logo" />
             </div>
           </div>
         </div>
