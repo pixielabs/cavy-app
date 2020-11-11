@@ -10,28 +10,17 @@ const CompLibrary = require("../../core/CompLibrary.js");
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
-const Button = ({ className, href, target, children }) => (
-  <div className="pluginWrapper buttonWrapper">
-    <a
-      className={className ? `button ${className}` : 'button'}
-      href={href}
-      target={target}>
-      {children}
-    </a>
-  </div>
-);
+// https://docusaurus.io/docs/en/api-pages this is actually how you require
+// your own components.
+const Badge = require(`${process.cwd()}/core/Badge.js`);
+const Button = require(`${process.cwd()}/core/Button.js`);
+const Section = require(`${process.cwd()}/core/Section.js`);
 
 function HomeSplash({ siteConfig, language = "" }) {
   const { baseUrl, docsUrl } = siteConfig;
   const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
   const langPart = `${language ? `${language}/` : ""}`;
   const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
-
-  const Badge = ({ href, src, alt }) => (
-    <a className="badge" href={href}>
-      <img src={src} alt={alt} height="18" />
-    </a>
-  );
 
   return (
     <div className="homeContainer darkBackground">
@@ -92,83 +81,35 @@ function HomeSplash({ siteConfig, language = "" }) {
 function Index({ config: siteConfig, language = "" }) {
   const { baseUrl } = siteConfig;
 
-  const Block = ({ id, background, className, align, children, layout }) => (
-    <Container
-      padding={["bottom", "top"]}
-      id={id}
-      background={background}
-      className={className}
-    >
-      <GridBlock align={align} contents={children} layout={layout} />
-    </Container>
-  );
-
   const Description = () => (
-    <Block background="light">
-      {[
-        {
-          content:
-            "Cavy is an open-source end-to-end test framework for React Native, developed for use with both iOS and Android applications. Write clean test cases, interact with deeply-nested components and run tests within your live application on a host device. All without touching any native code.",
-          image: `https://user-images.githubusercontent.com/126989/46629651-8b925e80-cb39-11e8-90b4-23d447d818f9.gif`,
-          imageAlign: "right",
-          title: "End-to-end testing for React Native in pure JavaScript"
-        }
-      ]}
-    </Block>
-  );
+    <Section
+      className='lightBackground'
+      title='End-to-end testing for React Native in pure JavaScript'
+      content='Cavy is an open-source end-to-end test framework for React Native, developed for use with both iOS and Android applications. Write clean test cases, interact with deeply-nested components and run tests within your live application on a host device. All without touching any native code.'
+      src={`https://user-images.githubusercontent.com/126989/46629651-8b925e80-cb39-11e8-90b4-23d447d818f9.gif`} />
+  )
 
   const CI = () => (
-    <Container padding={["bottom", "top"]}>
-      <div className='block'>
-        <div className='blockElement'>
-          <img src={`${baseUrl}img/undraw_mobile_testing.svg`} alt="CI" />
-        </div>
-        <div className='blockElement'>
-          <h2>Add Cavy to your Continuous Integration toolchain</h2>
-          <p>
-            Cavy comes with a simple command-line interface so you can easily
-            run your tests in your CI environment.
-          </p>
-          <Button
-            className='orangeButton'
-            href="https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml">
-            View sample
-          </Button>
-        </div>
-      </div>
-    </Container>
-  );
+    <Section
+      title='Add Cavy to your Continuous Integration toolchain'
+      content='Cavy comes with a simple command-line interface so you can easily run your tests in your CI environment.'
+      src={`${baseUrl}img/undraw_mobile_testing.svg`}
+      reverse={true}
+      button={{ text: 'View sample', href: 'https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml' }} />
+  )
 
   const Talks = () => (
-    <Container className='lightBackground' padding={["bottom", "top"]}>
-      <div className='block'>
-        <div className='blockElement'>
-          <h2>Blog posts and talks</h2>
-          <p>
-            The team behind Cavy regularly publish blog posts about the latest
-            Cavy features and have spoken at the Red Badger and JS roundabout
-            meetups.
-          </p>
-          <Button
-            className='orangeButton'
-            href="https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml">
-            Read more
-          </Button>
-        </div>
-        <div className='blockElement'>
-          <img src={`${baseUrl}img/undraw_knowledge.svg`} alt="Blogs" />
-        </div>
-      </div>
-    </Container>
-  );
+    <Section
+      className='lightBackground'
+      title='Blog posts and talks'
+      content='The team behind Cavy regularly publish blog posts about the latest Cavy features and have spoken at the Red Badger and JS roundabout meetups.'
+      src={`${baseUrl}img/undraw_knowledge.svg`}
+      button={{ text: 'Read more', href: `${baseUrl}en/media` }} />
+  )
 
   const Features = () => (
-    <Block
-      layout="threeColumn"
-      className="keyFeatures"
-      align="center"
-    >
-      {[
+    <Container padding={["bottom", "top"]} className='keyFeatures' >
+      <GridBlock align='center' layout='threeColumn' contents={[
         {
           content: "Quickly set up Cavy with just a few lines of code - it's all pure JavaScript.",
           image: `${baseUrl}img/undraw_speed_test.svg`,
@@ -187,8 +128,8 @@ function Index({ config: siteConfig, language = "" }) {
           imageAlign: "top",
           title: "Cross-platform"
         }
-      ]}
-    </Block>
+      ]} />
+    </Container>
   );
 
   return (
