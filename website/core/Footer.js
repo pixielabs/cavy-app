@@ -7,7 +7,7 @@
 
 const React = require("react");
 
-function Footer({ config }) {
+const Footer = ({ config }) => {
   const { baseUrl, docsUrl, footerIcon, title, repoUrl, copyright } = config;
 
   const docUrl = (doc, language = "") => {

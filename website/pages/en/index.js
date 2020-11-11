@@ -14,6 +14,7 @@ const GridBlock = CompLibrary.GridBlock;
 // your own components.
 const Badge = require(`${process.cwd()}/core/Badge.js`);
 const Button = require(`${process.cwd()}/core/Button.js`);
+const PixieLabs = require(`${process.cwd()}/core/PixieLabs.js`);
 
 function HomeSplash({ siteConfig, language = "" }) {
   const { baseUrl, docsUrl } = siteConfig;
@@ -169,6 +170,7 @@ function Index({ config: siteConfig, language = "" }) {
         <Description />
         <CI />
         <Talks />
+        <PixieLabs baseUrl={baseUrl}/>
       </div>
     </div>
   );

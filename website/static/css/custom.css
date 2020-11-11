@@ -5,6 +5,8 @@
   --light-grey: #f0f5f7;
   --text-grey: #848b92;
   --orange: #edb53b;
+  --red: #db5461;
+  --green: #3ab28d;
 }
 
 /* General styles */
@@ -44,17 +46,11 @@ h2 {
   text-align: center;
 }
 
-.highlightBackground {
-  background: white;
-  color: black;
-}
-
 .lightBackground {
   background: var(--light-grey);
 }
 
 /* Header */
-
 .fixedHeaderContainer {
   padding: 20px 0;
 }
@@ -77,6 +73,14 @@ h2 {
 
 .homeContainer .projectTitle span {
   font-weight: 500;
+}
+
+.redUnderline {
+  border-bottom: 4px solid var(--red);
+}
+
+.greenUnderline {
+  border-bottom: 4px solid var(--green);
 }
 
 .homeContainer .button {
@@ -118,7 +122,7 @@ h2 {
 }
 
 .homeSplashFade {
-  background: rgb(39,47,54);
+  background-color: var(--darker-grey);
   background: linear-gradient(90deg, var(--darker-grey), var(--dark-grey) 100%);
   padding-bottom: 40px;
 }
@@ -135,10 +139,7 @@ h2 {
 .block {
   display: flex;
   align-items: center;
-}
-
-.blockReverse {
-  flex-direction: row-reverse;
+  justify-content: center;
 }
 
 .block .blockElement {
@@ -149,6 +150,73 @@ h2 {
   color: var(--text-grey);
   font-size: 18px;
 }
+
+/* Pixie Labs section */
+
+.pixieWrapper {
+  position: relative;
+}
+
+.pixieBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.pixieBackground {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.pixieBackground img {
+  opacity: .35;
+  object-fit: cover;
+  object-position: 50% 50%;
+  min-height: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.pixieLabsTitle {
+  color: #fff;
+  font-weight: lighter;
+  margin-top: 36px;
+  margin-right: 24px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.pixieLabsTitle span {
+  font-weight: 500;
+}
+
+.whiteButton {
+  color: black;
+  padding: 14px 38px;
+  margin-top: 30px;
+  margin-right: 20px;
+  font-size: 16px;
+  background-color: white;
+  border-color: white;
+  border-radius: 0;
+  text-transform: none;
+}
+
+.whiteButton:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: none;
+}
+
+/* Images */
 
 .imageGroup {
   position: relative;
@@ -357,4 +425,3 @@ h2 {
 
 @media only screen and (min-width: 1500px) {
 }
-
