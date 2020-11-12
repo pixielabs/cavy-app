@@ -122,6 +122,9 @@ function Index({ config: siteConfig, language = "" }) {
   const CI = () => (
     <Container padding={["bottom", "top"]}>
       <div className='block'>
+        <div className='circle circleLeft'></div>
+        <div className='circle circleCenter'></div>
+        <div className='circle circleRight'></div>
         <div className='blockElement featureImage'>
           <img className='screenshot' src={`${baseUrl}img/CI-screenshot.png`} />
         </div>
