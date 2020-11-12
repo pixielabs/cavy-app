@@ -12,9 +12,13 @@ const Container = CompLibrary.Container;
 
 
 const Article = ({ article, index }) => (
-  <div key={index} className={`article article${article.type}`}>
+  <div key={index} className={`article is${article.type}`}>
     <div className='articleTag'>{article.type}</div>
-    <img src={article.image} alt="Organisation's Logo" className="article-image" />
+    {article.image &&
+      <div className='articleImageWrapper'>
+        <img src={article.image} alt="Organisation's Logo" className="article-image" />
+      </div>
+    }
     <small className="article-date">{article.author} • {article.date}</small>
     <div className="article-copy">
       <a href={article.link}>
@@ -25,9 +29,7 @@ const Article = ({ article, index }) => (
   </div>
 )
 
-function Media(props) {
-  const { config: siteConfig } = props;
-
+function Media({ config: siteConfig }) {
   return (
       <div className="homeContainer">
         <div className="homeSplashFade">
@@ -46,28 +48,17 @@ function Media(props) {
           </div>
         </Container>
 
-        <Container padding="bottom">
-          <header>
-            <h1>Videos</h1>
-          </header>
-          <div className="videos">
-            <div className="video-wrapper">
-              <iframe
-                type="text/html"
-                width="640"
-                height="360"
-                src="https://www.youtube.com/embed/VG6Jbe5M1XQ"
-              />
-            </div>
-          </div>
-        </Container>
-        <Container padding="bottom">
+        <Container background="light" padding="bottom">
           <div className="blog-mailto">
-            <h3>Have you written a blog post about Cavy?</h3>
+            <h3>Have you written a</h3>
+            <h3 className='bold'>blog post about Cavy?</h3>
             <a
               href="mailto:team@pixielabs.io?subject=Cavy Blog Post"
-              className="button">
+              className="button greyButton">
               Send us a link
+              <span>
+                <img className='rightChevron' src={`${siteConfig.baseUrl}img/white-right-arrow.svg`} />
+              </span>
             </a>
           </div>
         </Container>

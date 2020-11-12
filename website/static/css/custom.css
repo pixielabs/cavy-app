@@ -4,7 +4,7 @@
   --mid-grey: #636a70;
   --light-grey: #e1e7ea;
   --lighter-grey: #f0f5f7;
-  --text-grey: #848b92;
+  --mid-grey: #848b92;
   --orange: #edb53b;
   --red: #db5461;
   --green: #3ab28d;
@@ -124,6 +124,13 @@ h2 {
   text-transform: none;
 }
 
+
+.greyButton {
+  color: white;
+  background-color: var(--mid-grey);
+  border-color: var(--mid-grey);
+}
+
 .homeContainer .button:hover {
   border-color: var(--orange);
   color: var(--orange);
@@ -159,7 +166,7 @@ h2 {
 }
 
 .block p {
-  color: var(--text-grey);
+  color: var(--mid-grey);
   font-size: 18px;
 }
 
@@ -344,10 +351,10 @@ h2 {
 .articleWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
-.article.articleArticle {
+.article.isArticle {
   background-color: white;
   border: var(--light-grey) solid 2px;
 }
@@ -359,6 +366,13 @@ h2 {
   max-width: 345px;
   background-color: var(--light-grey);
   text-align: left;
+}
+
+.article.isVideo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: none;
 }
 
 .articleTag {
@@ -378,12 +392,24 @@ h2 {
   font-size: 20px;
 }
 
+.article.isVideo .article-copy h3 {
+  background-color: white;
+  padding: 2px 5px;
+}
+
 .article-copy p {
   font-size: 12px;
 }
 
 .article-date {
   font-size: 12px;
+}
+
+.article.isVideo .article-date {
+  background-color: var(--darker-grey);
+  color: white;
+  font-weight: 300;
+  padding: 2px 5px;
 }
 
 .contributors a,
@@ -402,29 +428,40 @@ h2 {
   margin-bottom: 18px;
 }
 
-.blog-mailto h3 {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-/* We don't want videos to take up the whole page */
-.videos {
-  max-width: 600px;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
-  height: 0;
-}
-
-.video-wrapper iframe {
+.article.isVideo .articleImageWrapper {
+  background-color: var(--dark-grey);
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.article.isVideo img {
+  display: none;
+  object-fit: cover;
+  object-position: 50% 50%;
+  min-height: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.blog-mailto {
+  padding-top: 20px;
+}
+
+.blog-mailto h3 {
+  font-size: 32px;
+  font-weight: lighter;
+  margin-bottom: 8px;
+}
+
+.blog-mailto h3.bold {
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 36px;
 }
 
 .twitter-share-button {
@@ -463,6 +500,12 @@ h2 {
 
   .keyFeatures .blockElement {
     margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 736px) {
+  .article.isVideo img {
+    display: block;
   }
 }
 

@@ -35,6 +35,14 @@ function articles(baseUrl) {
       type: "Article"
     },
     {
+      title: "Cavy: An End-To-End Testing Framework for React Native",
+      author: 'Abigail McPhillips & David Somers',
+      image: baseUrl + "img/Pusher.png",
+      link: "https://www.youtube.com/watch?v=VG6Jbe5M1XQ",
+      date: "Oct 22, 2018",
+      type: "Video"
+    },
+    {
       content:
         "How we at Magnetis Backstage are writing e2e tests for our mobile application.",
       title: "React Native e2e testing with Cavy",
