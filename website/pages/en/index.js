@@ -52,7 +52,7 @@ function HomeSplash({ siteConfig, language = "" }) {
                       </span>
                     </Button>
                     <Button href="https://discord.gg/4NMFMmz">
-                      Join the discord
+                      Join the Discord
                       <span>
                         <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
                       </span>
