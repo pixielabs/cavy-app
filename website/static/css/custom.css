@@ -123,6 +123,12 @@ h2 {
   color: var(--orange);
 }
 
+.homeContainer .splashButton:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: none;
+}
+
 .homeContainer .badge {
   margin: 0 2px;
 }
