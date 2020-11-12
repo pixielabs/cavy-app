@@ -91,65 +91,59 @@ function Index({ config: siteConfig, language = "" }) {
   const { baseUrl } = siteConfig;
 
   const Description = () => (
-    <div className='container paddingBottom paddingTop lightBackground'>
-      <div className='wrapper'>
-        <div className='block'>
-          <div className='blockElement'>
-            <h2>End-to-end testing for React Native in pure JavaScript</h2>
-            <p>Cavy is an open-source end-to-end test framework for React Native, developed for use with both iOS and Android applications. Write clean test cases, interact with deeply-nested components and run tests within your live application on a host device. All without touching any native code.</p>
-          </div>
-          <div className='blockElement imageGroup'>
-            <img src={`${baseUrl}img/Testing-screenshot.png`} />
-            <img className='mobileScreenshot rounded' src={`${baseUrl}img/Mobile-screenshot.png`} />
-          </div>
+    <Container padding={["bottom", "top"]} background='light'>
+      <div className='block'>
+        <div className='blockElement'>
+          <h2>End-to-end testing for React Native in pure JavaScript</h2>
+          <p>Cavy is an open-source end-to-end test framework for React Native, developed for use with both iOS and Android applications. Write clean test cases, interact with deeply-nested components and run tests within your live application on a host device. All without touching any native code.</p>
+        </div>
+        <div className='blockElement featureImage imageGroup'>
+          <img src={`${baseUrl}img/Testing-screenshot.png`} />
+          <img className='mobileScreenshot rounded' src={`${baseUrl}img/Mobile-screenshot.png`} />
         </div>
       </div>
-    </div>
+    </Container>
   )
 
   const CI = () => (
-    <div className='container paddingBottom paddingTop'>
-      <div className='wrapper'>
-        <div className='block'>
-          <div className='blockElement'>
-            <img className='screenshot' src={`${baseUrl}img/CI-screenshot.png`} />
-          </div>
-          <div className='blockElement'>
-            <h2>Add Cavy to your Continuous Integration toolchain</h2>
-            <p>Cavy comes with a simple command-line interface so you can easily run your tests in your CI environment.</p>
-            <Button className='orangeButton' href='https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml'>
-              View sample
-              <span>
-                <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
-              </span>
-            </Button>
-          </div>
+    <Container padding={["bottom", "top"]}>
+      <div className='block'>
+        <div className='blockElement featureImage'>
+          <img className='screenshot' src={`${baseUrl}img/CI-screenshot.png`} />
+        </div>
+        <div className='blockElement'>
+          <h2>Add Cavy to your Continuous Integration toolchain</h2>
+          <p>Cavy comes with a simple command-line interface so you can easily run your tests in your CI environment.</p>
+          <Button className='orangeButton' href='https://github.com/pixielabs/cavy/blob/master/.circleci/config.yml'>
+            View sample
+            <span>
+              <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+            </span>
+          </Button>
         </div>
       </div>
-    </div>
+    </Container>
   )
 
   const Talks = () => (
-    <div className='container paddingBottom paddingTop lightBackground'>
-      <div className='wrapper'>
-        <div className='block'>
-          <div className='blockElement'>
-            <h2>Blog posts and talks</h2>
-            <p>The team behind Cavy regularly publish blog posts about the latest Cavy features and have spoken at the Red Badger and JS roundabout meetups.</p>
-            <Button className='orangeButton' href={`${baseUrl}en/media`}>
-              Read more
-              <span>
-                <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
-              </span>
-            </Button>
-          </div>
-          <div className='blockElement imageGroup'>
-            <img className='screenshot rounded' src={`${baseUrl}img/Talk.png`} />
-            <img className='blogScreenshot' src={`${baseUrl}img/Blog-screenshot.png`} />
-          </div>
+    <Container padding={["bottom", "top"]} background='light'>
+      <div className='block'>
+        <div className='blockElement'>
+          <h2>Blog posts and talks</h2>
+          <p>The team behind Cavy regularly publish blog posts about the latest Cavy features and have spoken at the Red Badger and JS roundabout meetups.</p>
+          <Button className='orangeButton' href={`${baseUrl}en/media`}>
+            Read more
+            <span>
+              <img className='rightChevron' src={`${baseUrl}img/white-right-arrow.svg`} />
+            </span>
+          </Button>
+        </div>
+        <div className='blockElement featureImage imageGroup'>
+          <img className='screenshot rounded' src={`${baseUrl}img/Talk.png`} />
+          <img className='blogScreenshot' src={`${baseUrl}img/Blog-screenshot.png`} />
         </div>
       </div>
-    </div>
+    </Container>
   )
 
   const Features = () => (
