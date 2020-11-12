@@ -80,6 +80,10 @@ h2 {
 }
 
 /* Header */
+.fixedHeaderContainer {
+  width: 100vw;
+}
+
 .fixedHeaderContainer header .headerTitleWithLogo {
   font-weight: normal;
   font-size: 36px;
