@@ -360,10 +360,13 @@ h2 {
 }
 
 .article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   margin: 4px;
   padding: 20px 16px 0px 16px;
-  max-width: 345px;
+  width: 345px;
   background-color: var(--light-grey);
   text-align: left;
 }
