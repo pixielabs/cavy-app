@@ -8,28 +8,31 @@ function articles(baseUrl) {
       image: baseUrl + "img/cavy.png",
       link:
         "https://blog.pixielabs.io/cavy-better-test-reporting-for-react-native-integration-tests-49cab1efa60b",
-      date: "Jun 4, 2019"
+      date: "Jun 4, 2019",
+      type: "Blog"
     },
     {
       content:
         "Introducing the useCavy() React Hook for function components and the beforeEach test function.",
-      title: "Cavy 2.0",
+      title: "Cavy 2.0 - Shiny new features",
       author: 'Abigail McPhillips',
       image: baseUrl + "img/cavy.png",
       link:
         "https://blog.pixielabs.io/cavy-2-0-shiny-new-features-f0b5449b23dd",
-      date: "May 8, 2019"
+      date: "May 8, 2019",
+      type: "Blog"
     },
     {
       content:
-        "I’ve recently been using Cavy to handle end-to-end testing for a React Native app. In this post, I’ll go over some first impressions and a few patterns I’ve found to be helpful.",
+        "In this post, I’ll go over some first impressions and a few patterns I’ve found to be helpful.",
       title: "An Introduction to React Native Testing with Cavy",
       author: 'Tyler Hoffman',
       image:
         "https://pbs.twimg.com/profile_images/1125887739860275200/wytFQDmu_400x400.png",
       link:
         "https://spin.atomicobject.com/2019/02/11/react-native-testing-cavy/",
-      date: "Feb 11, 2019"
+      date: "Feb 11, 2019",
+      type: "Article"
     },
     {
       content:
@@ -39,7 +42,8 @@ function articles(baseUrl) {
       image: baseUrl + "img/cavy.png",
       link:
         "https://medium.com/magnetis-backstage/react-native-e2e-testing-with-cavy-1f1d5be1d3be",
-      date: "Mar 28, 2018"
+      date: "Mar 28, 2018",
+      type: "Blog"
     },
     {
       content:
@@ -49,7 +53,8 @@ function articles(baseUrl) {
       image: baseUrl + "img/cavy.png",
       link:
         "https://blog.pixielabs.io/announcing-cavy-an-integration-testing-framework-for-react-native-b09d264923d9",
-      date: "Oct 31, 2017"
+      date: "Oct 31, 2017",
+      type: "Blog"
     }
   ];
 }
