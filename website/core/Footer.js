@@ -23,7 +23,7 @@ const Footer = ({ config }) => {
   return (
     <footer className="nav-footer" id="footer">
       <section className="sitemap">
-        <div>
+        <div className='builtWithLoveWrapper'>
           <a href="https://pixielabs.io">
             <img className='builtWithLove' src={`${baseUrl}img/Built-with-love.png`} alt="Pixie Labs" />
           </a>

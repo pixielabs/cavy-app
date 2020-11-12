@@ -410,6 +410,10 @@ h2 {
   font-size: 10px;
 }
 
+.builtWithLoveWrapper {
+  text-align: center;
+}
+
 .builtWithLove {
   max-width: 240px;
   margin-left: 40px;
@@ -443,6 +447,10 @@ h2 {
 
   .square {
     display: block;
+  }
+
+  .builtWithLoveWrapper {
+    text-align: left;
   }
 
   .promoSection .promoRow .pluginRowBlock {
