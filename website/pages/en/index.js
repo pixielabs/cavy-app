@@ -156,7 +156,7 @@ function Index({ config: siteConfig, language = "" }) {
       <GridBlock align='center' layout='threeColumn' contents={[
         {
           content: "Quickly set up Cavy with just a few lines of code - it's all pure JavaScript.",
-          image: `${baseUrl}img/Quick-set-up.svg`,
+          image: `${baseUrl}img/Quick-Set-Up.svg`,
           imageAlign: "top",
           title: "Quick set up"
         },
