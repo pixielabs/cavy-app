@@ -85,8 +85,11 @@ h2 {
 }
 
 .fixedHeaderContainer header .headerTitleWithLogo {
-  font-weight: normal;
-  font-size: 36px;
+  display: none;
+}
+
+.fixedHeaderContainer header img {
+  height: 150%;
 }
 
 /* Homepage splash */

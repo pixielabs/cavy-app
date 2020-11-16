@@ -37,7 +37,7 @@ const siteConfig = {
   articles: require("./config-constants/articles")(baseUrl),
 
   /* path to images for header/footer */
-  headerIcon: "img/cavy.png",
+  headerIcon: "img/cavy-logo.svg",
   footerIcon: "img/cavy.png",
   favicon: "img/favicon.ico",
 
